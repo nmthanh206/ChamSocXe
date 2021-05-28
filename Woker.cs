@@ -29,5 +29,24 @@ namespace ChamSocXe
                             $"WHERE nv.maCM={maCM}";
             return data.getTable(query);
         }
+
+        public bool addWorker(int maNV,int maCM,string hoTen,DateTime ngaySinh,string gioiTinh,string diaChi,string sdt,string email  )
+        {
+            string query = $"INSERT INTO NhanVien (maNV,maCM,matKhau,hoTen,ngaySinh,gioiTinh,diaChi,sdt,email) " +
+                $"VALUES ({maNV},{maCM},'{maNV}','{hoTen}','{ngaySinh.ToString("yyyy-MM-dd")}','{gioiTinh}','{diaChi}','{sdt}','{email}')";
+            return data.ExecuteNonQuery(query);
+        }
+        public bool removeWorker(int maNV)
+        {
+            string query = $"DELETE FROM NhanVien WHERE maNV={maNV}";
+            return data.ExecuteNonQuery(query);
+        }
+        public bool updateWorker(int maNV, int maCM, string hoTen, DateTime ngaySinh, string gioiTinh, string diaChi, string sdt, string email)
+        {
+            string query = $"UPDATE NhanVien SET " +
+                           $"maCM={maCM},matKhau='{maNV}',hoTen='{hoTen}',ngaySinh='{ngaySinh.ToString("yyyy-MM-dd")}',gioiTinh='{gioiTinh}',diaChi='{diaChi}',sdt='{sdt}',email='{email}' " +
+                           $"WHERE maNV={maNV}";
+            return data.ExecuteNonQuery(query);
+        }
     }
 }

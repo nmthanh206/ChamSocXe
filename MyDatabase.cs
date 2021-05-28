@@ -52,5 +52,40 @@ namespace ChamSocXe
             return datatable;
 
         }
+
+        public bool ExecuteNonQuery(string query)
+        {
+
+           
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, Connection);
+         
+                openConnection();
+                int ret = cmd.ExecuteNonQuery();
+                if (ret > 0)
+                {
+                    //MessageBox.Show("Them thanh cong", "Thong bao", MessageBoxButtons.OK);
+                    return true;
+                }
+                else
+                {
+                    //MessageBox.Show("Them that bai", "Thong bao", MessageBoxButtons.OK);
+                    return false;
+                }                    
+                   
+            }
+            catch (Exception error)
+            {
+             
+                MessageBox.Show($"{error.Message}Loi nhan data");
+            }
+            finally
+            {
+                closeConnection();
+            }
+            return false;
+
+        }
     }
 }

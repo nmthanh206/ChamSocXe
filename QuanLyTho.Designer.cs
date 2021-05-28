@@ -44,7 +44,7 @@ namespace ChamSocXe
             this.label4 = new System.Windows.Forms.Label();
             this.cbChuyenMon = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.rtxtDiachi = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,24 +59,26 @@ namespace ChamSocXe
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(33, 477);
+            this.btnAdd.Location = new System.Drawing.Point(11, 463);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvWorkers
             // 
             this.dgvWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWorkers.Location = new System.Drawing.Point(388, 91);
+            this.dgvWorkers.Location = new System.Drawing.Point(371, 91);
             this.dgvWorkers.Name = "dgvWorkers";
-            this.dgvWorkers.Size = new System.Drawing.Size(739, 339);
+            this.dgvWorkers.Size = new System.Drawing.Size(817, 366);
             this.dgvWorkers.TabIndex = 1;
+            this.dgvWorkers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWorkers_CellClick);
             // 
             // btnShowFull
             // 
-            this.btnShowFull.Location = new System.Drawing.Point(388, 45);
+            this.btnShowFull.Location = new System.Drawing.Point(371, 45);
             this.btnShowFull.Name = "btnShowFull";
             this.btnShowFull.Size = new System.Drawing.Size(109, 23);
             this.btnShowFull.TabIndex = 0;
@@ -87,34 +89,36 @@ namespace ChamSocXe
             // cbShowRole
             // 
             this.cbShowRole.FormattingEnabled = true;
-            this.cbShowRole.Location = new System.Drawing.Point(976, 39);
+            this.cbShowRole.Location = new System.Drawing.Point(959, 39);
             this.cbShowRole.Name = "cbShowRole";
             this.cbShowRole.Size = new System.Drawing.Size(151, 21);
             this.cbShowRole.TabIndex = 2;
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(255, 477);
+            this.btnRemove.Location = new System.Drawing.Point(233, 463);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 0;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(144, 477);
+            this.btnUpdate.Location = new System.Drawing.Point(122, 463);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtMaNV
             // 
             this.txtMaNV.Location = new System.Drawing.Point(167, 48);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(100, 20);
+            this.txtMaNV.Size = new System.Drawing.Size(163, 20);
             this.txtMaNV.TabIndex = 3;
             // 
             // label1
@@ -139,7 +143,7 @@ namespace ChamSocXe
             // 
             this.txtTen.Location = new System.Drawing.Point(167, 91);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(100, 20);
+            this.txtTen.Size = new System.Drawing.Size(163, 20);
             this.txtTen.TabIndex = 5;
             // 
             // label3
@@ -155,7 +159,7 @@ namespace ChamSocXe
             // 
             this.txtDienThoai.Location = new System.Drawing.Point(167, 270);
             this.txtDienThoai.Name = "txtDienThoai";
-            this.txtDienThoai.Size = new System.Drawing.Size(138, 20);
+            this.txtDienThoai.Size = new System.Drawing.Size(163, 20);
             this.txtDienThoai.TabIndex = 7;
             // 
             // label4
@@ -184,21 +188,21 @@ namespace ChamSocXe
             this.label5.TabIndex = 6;
             this.label5.Text = "Chuyên Môn";
             // 
-            // dateTimePicker1
+            // dtpNgaySinh
             // 
-            this.dateTimePicker1.CustomFormat = "\"dd-MM-yyyy\"";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(167, 226);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 11;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 5, 28, 0, 0, 0, 0);
+            this.dtpNgaySinh.CustomFormat = "\"dd-MM-yyyy\"";
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(167, 226);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(163, 20);
+            this.dtpNgaySinh.TabIndex = 11;
+            this.dtpNgaySinh.Value = new System.DateTime(2021, 5, 28, 0, 0, 0, 0);
             // 
             // rtxtDiachi
             // 
             this.rtxtDiachi.Location = new System.Drawing.Point(167, 352);
             this.rtxtDiachi.Name = "rtxtDiachi";
-            this.rtxtDiachi.Size = new System.Drawing.Size(200, 78);
+            this.rtxtDiachi.Size = new System.Drawing.Size(163, 78);
             this.rtxtDiachi.TabIndex = 12;
             this.rtxtDiachi.Text = "";
             // 
@@ -224,7 +228,7 @@ namespace ChamSocXe
             // 
             this.txtEmail.Location = new System.Drawing.Point(167, 302);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(138, 20);
+            this.txtEmail.Size = new System.Drawing.Size(163, 20);
             this.txtEmail.TabIndex = 13;
             // 
             // label8
@@ -260,17 +264,18 @@ namespace ChamSocXe
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(363, 477);
+            this.btnReset.Location = new System.Drawing.Point(341, 463);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 0;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(921, 42);
+            this.label9.Location = new System.Drawing.Point(904, 42);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 16;
@@ -281,14 +286,14 @@ namespace ChamSocXe
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1139, 522);
+            this.ClientSize = new System.Drawing.Size(1225, 517);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.radNam);
             this.Controls.Add(this.radNu);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.rtxtDiachi);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -333,7 +338,7 @@ namespace ChamSocXe
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbChuyenMon;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.RichTextBox rtxtDiachi;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
