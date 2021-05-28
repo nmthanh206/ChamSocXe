@@ -30,7 +30,7 @@ namespace ChamSocXe
         private void InitializeComponent()
         {
             this.btnAdd = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvWorkers = new System.Windows.Forms.DataGridView();
             this.btnShowFull = new System.Windows.Forms.Button();
             this.cbShowRole = new System.Windows.Forms.ComboBox();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -52,7 +52,9 @@ namespace ChamSocXe
             this.label8 = new System.Windows.Forms.Label();
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWorkers)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -64,34 +66,35 @@ namespace ChamSocXe
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvWorkers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(509, 131);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(445, 270);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWorkers.Location = new System.Drawing.Point(388, 91);
+            this.dgvWorkers.Name = "dgvWorkers";
+            this.dgvWorkers.Size = new System.Drawing.Size(739, 339);
+            this.dgvWorkers.TabIndex = 1;
             // 
             // btnShowFull
             // 
-            this.btnShowFull.Location = new System.Drawing.Point(506, 47);
+            this.btnShowFull.Location = new System.Drawing.Point(388, 45);
             this.btnShowFull.Name = "btnShowFull";
             this.btnShowFull.Size = new System.Drawing.Size(109, 23);
             this.btnShowFull.TabIndex = 0;
             this.btnShowFull.Text = "Show Full Woker";
             this.btnShowFull.UseVisualStyleBackColor = true;
+            this.btnShowFull.Click += new System.EventHandler(this.btnShowFull_Click);
             // 
             // cbShowRole
             // 
             this.cbShowRole.FormattingEnabled = true;
-            this.cbShowRole.Location = new System.Drawing.Point(817, 47);
+            this.cbShowRole.Location = new System.Drawing.Point(976, 39);
             this.cbShowRole.Name = "cbShowRole";
-            this.cbShowRole.Size = new System.Drawing.Size(121, 21);
+            this.cbShowRole.Size = new System.Drawing.Size(151, 21);
             this.cbShowRole.TabIndex = 2;
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(251, 477);
+            this.btnRemove.Location = new System.Drawing.Point(255, 477);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 0;
@@ -255,12 +258,31 @@ namespace ChamSocXe
             this.radNam.Text = "Nam";
             this.radNam.UseVisualStyleBackColor = true;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(363, 477);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 0;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(921, 42);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Lọc:";
+            // 
             // QuanLyTho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(998, 530);
+            this.ClientSize = new System.Drawing.Size(1139, 522);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.radNam);
             this.Controls.Add(this.radNu);
             this.Controls.Add(this.label7);
@@ -279,15 +301,16 @@ namespace ChamSocXe
             this.Controls.Add(this.txtMaNV);
             this.Controls.Add(this.cbChuyenMon);
             this.Controls.Add(this.cbShowRole);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvWorkers);
             this.Controls.Add(this.btnShowFull);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Name = "QuanLyTho";
             this.Text = "QuanLyTho";
             this.Load += new System.EventHandler(this.QuanLyTho_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWorkers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +319,7 @@ namespace ChamSocXe
         #endregion
 
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvWorkers;
         private System.Windows.Forms.Button btnShowFull;
         private System.Windows.Forms.ComboBox cbShowRole;
         private System.Windows.Forms.Button btnRemove;
@@ -318,5 +341,7 @@ namespace ChamSocXe
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RadioButton radNam;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label label9;
     }
 }
