@@ -54,6 +54,9 @@ namespace ChamSocXe
             this.radNam = new System.Windows.Forms.RadioButton();
             this.btnReset = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTim = new System.Windows.Forms.TextBox();
+            this.btnTim = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +73,7 @@ namespace ChamSocXe
             // dgvWorkers
             // 
             this.dgvWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWorkers.Location = new System.Drawing.Point(371, 91);
+            this.dgvWorkers.Location = new System.Drawing.Point(371, 90);
             this.dgvWorkers.Name = "dgvWorkers";
             this.dgvWorkers.Size = new System.Drawing.Size(817, 366);
             this.dgvWorkers.TabIndex = 1;
@@ -78,7 +81,7 @@ namespace ChamSocXe
             // 
             // btnShowFull
             // 
-            this.btnShowFull.Location = new System.Drawing.Point(371, 45);
+            this.btnShowFull.Location = new System.Drawing.Point(371, 37);
             this.btnShowFull.Name = "btnShowFull";
             this.btnShowFull.Size = new System.Drawing.Size(109, 23);
             this.btnShowFull.TabIndex = 0;
@@ -89,7 +92,7 @@ namespace ChamSocXe
             // cbShowRole
             // 
             this.cbShowRole.FormattingEnabled = true;
-            this.cbShowRole.Location = new System.Drawing.Point(959, 39);
+            this.cbShowRole.Location = new System.Drawing.Point(980, 39);
             this.cbShowRole.Name = "cbShowRole";
             this.cbShowRole.Size = new System.Drawing.Size(151, 21);
             this.cbShowRole.TabIndex = 2;
@@ -275,11 +278,37 @@ namespace ChamSocXe
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(904, 42);
+            this.label9.Location = new System.Drawing.Point(925, 42);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Lọc:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(560, 40);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Tìm Kiếm:";
+            // 
+            // txtTim
+            // 
+            this.txtTim.Location = new System.Drawing.Point(619, 37);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(163, 20);
+            this.txtTim.TabIndex = 17;
+            // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(788, 35);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.TabIndex = 19;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // QuanLyTho
             // 
@@ -287,6 +316,9 @@ namespace ChamSocXe
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1225, 517);
+            this.Controls.Add(this.btnTim);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtTim);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.radNam);
             this.Controls.Add(this.radNu);
@@ -348,5 +380,8 @@ namespace ChamSocXe
         private System.Windows.Forms.RadioButton radNam;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtTim;
+        private System.Windows.Forms.Button btnTim;
     }
 }

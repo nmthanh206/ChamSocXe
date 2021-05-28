@@ -20,7 +20,8 @@ namespace ChamSocXe
 
         private void quảnLýThợToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QuanLyTho qltf = new QuanLyTho();
+            CloseAllForm();
+            QuanLyTho qltf = new QuanLyTho(this);
             openForm(qltf);
     
         }
@@ -31,8 +32,7 @@ namespace ChamSocXe
             form.FormBorderStyle = FormBorderStyle.None;
             form.TopLevel = false;
             form.AutoScroll = true;
-            this.pnContainer.Controls.Add(form);
-
+            pnContainer.Controls.Add(form);
             form.Show();
 
         }
@@ -55,10 +55,21 @@ namespace ChamSocXe
             foreach (Control c in pnContainer.Controls)
                 c.Dispose();
         }
-
+        void CloseAllForm()
+        {
+            foreach (Control c in pnContainer.Controls)
+                c.Dispose();
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void quảnLýChuyênMônToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForm();
+            ChuyenMon cmf = new ChuyenMon(this);
+            openForm(cmf);
         }
     }
 }

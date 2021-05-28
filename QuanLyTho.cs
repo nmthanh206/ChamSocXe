@@ -22,9 +22,11 @@ namespace ChamSocXe
         string diaChi;
         string sdt;
         string email;
-        public QuanLyTho()
+        public QuanLyTho(Form parent)
         {
             InitializeComponent();
+            this.Width = parent.Width;
+            this.Height = parent.Height;
         }
 
 
@@ -142,6 +144,50 @@ namespace ChamSocXe
             diaChi = rtxtDiachi.Text.Trim();
             sdt = txtDienThoai.Text.Trim();
             email = txtEmail.Text.Trim();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if (txtTim.Text.Trim() == "")
+            {
+                MessageBox.Show("Khong co gi de tim");
+                return;
+            }
+
+            int condition = 0;
+            string value = "";
+            if (IsDigitsOnly(txtTim.Text.Trim()))
+            {
+                value = txtTim.Text.Trim();
+                condition = 1;
+            }
+            else
+            {
+                foreach (char c in txtTim.Text.Trim())
+                {
+                    if (c > '0' && c < '9')
+                    {
+
+                        MessageBox.Show("Nhap sai roi ");
+                        return;
+                    }
+
+
+                }
+                value = txtTim.Text.Trim();
+                condition = 2;
+            }
+            dgvWorkers.DataSource = wk.FindWorkerByIdOrName(value, condition);
+        }
+         bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
         }
     }
 }

@@ -16,3 +16,4 @@ F:\ChamSocXe\bin\Debug\DevComponents.DotNetBar.SuperGrid.dll
 F:\ChamSocXe\bin\Debug\DevComponents.Instrumentation.dll
 F:\ChamSocXe\bin\Debug\DevComponents.DotNetBar.SuperGrid.xml
 F:\ChamSocXe\bin\Debug\DevComponents.Instrumentation.xml
+F:\ChamSocXe\obj\Debug\ChamSocXe.ChuyenMon.resources
