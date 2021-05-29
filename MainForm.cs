@@ -12,6 +12,7 @@ namespace ChamSocXe
 {
     public partial class MainForm : Form
     {
+        GoiXe gxf;
         public MainForm()
         {
             InitializeComponent();
@@ -57,8 +58,13 @@ namespace ChamSocXe
         }
         void CloseAllForm()
         {
+            if (GoiXe.capture != null)
+            {
+                gxf.DisposeCamera();
+            }
             foreach (Control c in pnContainer.Controls)
                 c.Dispose();
+
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -70,6 +76,13 @@ namespace ChamSocXe
             CloseAllForm();
             ChuyenMon cmf = new ChuyenMon(this);
             openForm(cmf);
+        }
+
+        private void gởiXeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForm();
+            gxf = new GoiXe(this);
+            openForm(gxf);
         }
     }
 }

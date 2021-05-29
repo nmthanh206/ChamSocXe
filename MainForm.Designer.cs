@@ -33,9 +33,11 @@ namespace ChamSocXe
             this.tHỢToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýThợToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnContainer = new System.Windows.Forms.Panel();
             this.cHUYÊNMÔNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnContainer = new System.Windows.Forms.Panel();
+            this.xEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gởiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +45,8 @@ namespace ChamSocXe
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tHỢToolStripMenuItem,
-            this.cHUYÊNMÔNToolStripMenuItem});
+            this.cHUYÊNMÔNToolStripMenuItem,
+            this.xEToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1230, 24);
@@ -73,16 +76,6 @@ namespace ChamSocXe
             this.closeToolStripMenuItem.Text = "close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
-            // pnContainer
-            // 
-            this.pnContainer.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pnContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContainer.Location = new System.Drawing.Point(0, 24);
-            this.pnContainer.Name = "pnContainer";
-            this.pnContainer.Size = new System.Drawing.Size(1230, 529);
-            this.pnContainer.TabIndex = 1;
-            // 
             // cHUYÊNMÔNToolStripMenuItem
             // 
             this.cHUYÊNMÔNToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,6 +90,31 @@ namespace ChamSocXe
             this.quảnLýChuyênMônToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.quảnLýChuyênMônToolStripMenuItem.Text = "Quản Lý Chuyên Môn";
             this.quảnLýChuyênMônToolStripMenuItem.Click += new System.EventHandler(this.quảnLýChuyênMônToolStripMenuItem_Click);
+            // 
+            // pnContainer
+            // 
+            this.pnContainer.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnContainer.Location = new System.Drawing.Point(0, 24);
+            this.pnContainer.Name = "pnContainer";
+            this.pnContainer.Size = new System.Drawing.Size(1230, 529);
+            this.pnContainer.TabIndex = 1;
+            // 
+            // xEToolStripMenuItem
+            // 
+            this.xEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gởiXeToolStripMenuItem});
+            this.xEToolStripMenuItem.Name = "xEToolStripMenuItem";
+            this.xEToolStripMenuItem.Size = new System.Drawing.Size(32, 20);
+            this.xEToolStripMenuItem.Text = "XE";
+            // 
+            // gởiXeToolStripMenuItem
+            // 
+            this.gởiXeToolStripMenuItem.Name = "gởiXeToolStripMenuItem";
+            this.gởiXeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gởiXeToolStripMenuItem.Text = "Gởi Xe";
+            this.gởiXeToolStripMenuItem.Click += new System.EventHandler(this.gởiXeToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -125,5 +143,7 @@ namespace ChamSocXe
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cHUYÊNMÔNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýChuyênMônToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gởiXeToolStripMenuItem;
     }
 }
