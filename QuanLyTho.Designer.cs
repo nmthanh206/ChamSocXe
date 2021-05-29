@@ -53,10 +53,10 @@ namespace ChamSocXe
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
             this.btnReset = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
+            this.ckbLoc = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -275,34 +275,26 @@ namespace ChamSocXe
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(925, 42);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(28, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Lọc:";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(560, 40);
+            this.label10.Location = new System.Drawing.Point(605, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 13);
+            this.label10.Size = new System.Drawing.Size(144, 13);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Tìm Kiếm:";
+            this.label10.Text = "Tìm Kiếm (Mã NV hoặc Tên):";
             // 
             // txtTim
             // 
-            this.txtTim.Location = new System.Drawing.Point(619, 37);
+            this.txtTim.Location = new System.Drawing.Point(598, 35);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(163, 20);
             this.txtTim.TabIndex = 17;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(788, 35);
+            this.btnTim.Location = new System.Drawing.Point(781, 33);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 19;
@@ -310,16 +302,26 @@ namespace ChamSocXe
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
+            // ckbLoc
+            // 
+            this.ckbLoc.AutoSize = true;
+            this.ckbLoc.Location = new System.Drawing.Point(927, 41);
+            this.ckbLoc.Name = "ckbLoc";
+            this.ckbLoc.Size = new System.Drawing.Size(47, 17);
+            this.ckbLoc.TabIndex = 20;
+            this.ckbLoc.Text = "Lọc:";
+            this.ckbLoc.UseVisualStyleBackColor = true;
+            // 
             // QuanLyTho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1225, 517);
+            this.Controls.Add(this.ckbLoc);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtTim);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.radNam);
             this.Controls.Add(this.radNu);
             this.Controls.Add(this.label7);
@@ -379,9 +381,9 @@ namespace ChamSocXe
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RadioButton radNam;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.CheckBox ckbLoc;
     }
 }

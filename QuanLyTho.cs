@@ -22,6 +22,8 @@ namespace ChamSocXe
         string diaChi;
         string sdt;
         string email;
+        int condition = 0;
+        string value = "";
         public QuanLyTho(Form parent)
         {
             InitializeComponent();
@@ -43,7 +45,7 @@ namespace ChamSocXe
 
         private void CbChuyenMon_SelectedValueChanged(object sender, EventArgs e)
         {
-            dgvWorkers.DataSource = wk.getFullWorkersByRole((int)cbShowRole.SelectedValue);
+            dgvWorkers.DataSource = wk.getFullWorkersByRole((int)cbShowRole.SelectedValue,value,condition);
         }
 
         void loadDataComboBox(ComboBox cb)
@@ -56,6 +58,9 @@ namespace ChamSocXe
         private void btnShowFull_Click(object sender, EventArgs e)
         {
             dgvWorkers.DataSource = wk.getFullWorkers();
+             condition = 0;
+             value = "";
+            txtTim.Text = "";
         }
 
         private void dgvWorkers_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -154,8 +159,8 @@ namespace ChamSocXe
                 return;
             }
 
-            int condition = 0;
-            string value = "";
+            //int condition = 0;
+            //string value = "";
             if (IsDigitsOnly(txtTim.Text.Trim()))
             {
                 value = txtTim.Text.Trim();
@@ -177,7 +182,10 @@ namespace ChamSocXe
                 value = txtTim.Text.Trim();
                 condition = 2;
             }
-            dgvWorkers.DataSource = wk.FindWorkerByIdOrName(value, condition);
+            if (!ckbLoc.Checked)
+                dgvWorkers.DataSource = wk.FindWorkerByIdOrName(value, condition);
+            else
+                CbChuyenMon_SelectedValueChanged(sender, e);
         }
          bool IsDigitsOnly(string str)
         {
@@ -188,6 +196,11 @@ namespace ChamSocXe
             }
 
             return true;
+        }
+
+        private void txtTim_TextChanged(object sender, EventArgs e)
+        {
+            value = txtTim.Text;
         }
     }
 }

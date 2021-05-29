@@ -22,11 +22,15 @@ namespace ChamSocXe
             return data.getTable(query);
         }
 
-        public DataTable getFullWorkersByRole(int maCM)
+        public DataTable getFullWorkersByRole(int maCM, string value, int condition)
         {
+            string whereCondition = "";
+            if(condition!=0)
+             whereCondition = condition == 1 ? $" AND nv.maNV={value}" : $" AND nv.hoTen LIKE '%" + value + "%' ";
+            
             string query = $"SELECT nv.maNV,nv.hoTen,nv.ngaySinh,nv.gioiTinh,nv.diaChi,nv.sdt,nv.email,cm.tenCM FROM NhanVien nv " +
                             $"JOIN ChuyenMon cm ON cm.maCM=nv.MaCM " +
-                            $"WHERE nv.maCM={maCM}";
+                            $"WHERE nv.maCM={maCM} {whereCondition}";
             return data.getTable(query);
         }
 
