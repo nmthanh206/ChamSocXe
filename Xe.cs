@@ -122,13 +122,43 @@ namespace ChamSocXe
             return data.ExecuteNonQuery(querySQL, parameters.ToArray());
         }
 
-        public DataTable getDanhSachXeDichVu()
+        public DataTable getDanhSachXeDichVu(string whereCondition="")
         {
-            string query = $"SELECT * FROM XeDichVu";
+            string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,nv.hoTen,x.ngayGioRa,x.tinhTrang,x.phi " +
+                $"FROM XeDichVu x " +
+                $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
+                $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
+                $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
+                $"{whereCondition}";
 
             return data.getTable(query);
         }
+        public bool updateXedichVu(List<int> ids,List<bool> done)
+        {
+            string querySQL = "";
+            bool result = true;
+            for (int i = 0; i < ids.Count; i++)
+            {
+                int tinhTrang = done[i] ? 1 : 0;
+                querySQL = $"UPDATE XeDichVu SET tinhTrang={tinhTrang} WHERE id={ids[i]}";
+                if (!data.ExecuteNonQuery(querySQL))
+                    result = false;
 
-       
+            }
+            
+
+            return result;
+        }
+        public DataTable timSoXe(string whereCondition = "")
+        {
+            string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,nv.hoTen,x.ngayGioRa,x.tinhTrang,x.phi " +
+                $"FROM XeDichVu x " +
+                $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
+                $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
+                $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
+                $"{whereCondition}";
+            return data.getTable(query);
+        }
+
     }
 }
