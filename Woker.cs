@@ -21,7 +21,24 @@ namespace ChamSocXe
             string query = $"SELECT * FROM ChuyenMon";
             return data.getTable(query);
         }
-
+        public bool addCM( int maCM, string tenCM)
+        {
+            string query = $"INSERT INTO ChuyenMon (maCM,tenCM) " +
+                $"VALUES ({maCM},'{tenCM}')";
+            return data.ExecuteNonQuery(query);
+        }
+        public bool removeCM(int maCM)
+        {
+            string query = $"DELETE FROM ChuyenMon WHERE maCM={maCM}";
+               
+            return data.ExecuteNonQuery(query);
+        }
+        public bool updateCM(int maCM, string tenCM)
+        {
+            string query = $"UPDATE ChuyenMon SET tenCM=N'{tenCM}' WHERE maCM={maCM}";
+               
+            return data.ExecuteNonQuery(query);
+        }
         public DataTable getFullWorkersByRole(int maCM, string value="", int condition=0)
         {
             string whereCondition = "";
