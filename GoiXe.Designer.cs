@@ -46,8 +46,11 @@ namespace ChamSocXe
             this.label6 = new System.Windows.Forms.Label();
             this.txtNhanVien = new System.Windows.Forms.TextBox();
             this.btnChonNhanVien = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picTruocXe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSauXe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOpenCamera
@@ -202,11 +205,33 @@ namespace ChamSocXe
             this.btnChonNhanVien.UseVisualStyleBackColor = true;
             this.btnChonNhanVien.Click += new System.EventHandler(this.btnChonNhanVien_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(755, 117);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 139);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(775, 294);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // GoiXe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 602);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnChonNhanVien);
             this.Controls.Add(this.txtNhanVien);
             this.Controls.Add(this.cbDichVu);
@@ -229,6 +254,7 @@ namespace ChamSocXe
             this.Load += new System.EventHandler(this.GoiXe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picTruocXe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSauXe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,5 +279,7 @@ namespace ChamSocXe
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNhanVien;
         private System.Windows.Forms.Button btnChonNhanVien;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

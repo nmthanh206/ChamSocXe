@@ -22,7 +22,7 @@ namespace ChamSocXe
             return data.getTable(query);
         }
 
-        public DataTable getFullWorkersByRole(int maCM, string value, int condition)
+        public DataTable getFullWorkersByRole(int maCM, string value="", int condition=0)
         {
             string whereCondition = "";
             if(condition!=0)

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,6 +18,8 @@ namespace ChamSocXe
     public partial class GoiXe : Form
     {
         public static VideoCapture capture;
+        public int MaNV;
+        public string tenNV = "";
         Xe gx = new Xe();
         public GoiXe(Form parent)
         {
@@ -46,8 +50,8 @@ namespace ChamSocXe
                 MessageBox.Show("Camera dang mo roi");
                 return;
             }
-          //  capture = new VideoCapture();
-          //  capture.ImageGrabbed += Capture_ImageGrabbed;
+            //  capture = new VideoCapture();
+            //  capture.ImageGrabbed += Capture_ImageGrabbed;
             capture.Start();
         }
         private void Capture_ImageGrabbed(object sender, EventArgs e)
@@ -68,9 +72,9 @@ namespace ChamSocXe
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
             if (capture != null)
-            {           
+            {
                 capture.ImageGrabbed -= Capture_ImageGrabbed;
                 capture.Dispose();
                 capture = null;
@@ -83,19 +87,56 @@ namespace ChamSocXe
             {
                 capture.ImageGrabbed -= Capture_ImageGrabbed;
                 capture.Dispose();
-                capture = null;         
+                capture = null;
                 this.Close();
             }
         }
 
         private void btnGiaoViec_Click(object sender, EventArgs e)
         {
+            string soThe = txtTheXe.Text.Trim();
+            string bienSoXe = txtBienSo.Text.Trim();
 
+            var imgTruoc = capture.QueryFrame().ToImage<Bgr, byte>();
+            Bitmap bmgTruoc = imgTruoc.Bitmap;
+            Image anhPhiaTruoc = bmgTruoc;
+
+            var imgSau = capture.QueryFrame().ToImage<Bgr, byte>();
+            Bitmap bmgSau = imgSau.Bitmap;
+            Image anhPhiaSau = bmgSau;
+
+
+
+
+            DateTime ngayGioVao = DateTime.Now;
+
+            string maLoaiXe = cbLoaiXe.SelectedValue.ToString();
+
+            int maDichVu = (int)cbDichVu.SelectedValue;
+            if (gx.addXe(soThe, bienSoXe, anhPhiaTruoc, anhPhiaSau, ngayGioVao, maLoaiXe, maDichVu, MaNV))
+            {
+                MessageBox.Show("Them cong viec thanh cong", "Thong bao", MessageBoxButtons.OK);
+            }
+            else
+                MessageBox.Show("Them cong viec that bai", "Thong bao", MessageBoxButtons.OK);
         }
 
         private void btnChonNhanVien_Click(object sender, EventArgs e)
         {
 
+            NhanVien nv = new NhanVien((int)cbDichVu.SelectedValue, cbDichVu.GetItemText(cbDichVu.SelectedItem), this);
+            nv.ShowDialog();
+            txtNhanVien.Text = tenNV;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var imgTruoc = capture.QueryFrame().ToImage<Bgr, byte>();
+            Bitmap bmgTruoc = imgTruoc.Bitmap;
+            Image anhPhiaTruoc = bmgTruoc;
+            pictureBox1.Image = anhPhiaTruoc;
+
+        }
+
     }
 }

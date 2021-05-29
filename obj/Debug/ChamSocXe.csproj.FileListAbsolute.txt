@@ -47,3 +47,4 @@ F:\ChamSocXe\bin\Debug\tr\ZedGraph.resources.dll
 F:\ChamSocXe\bin\Debug\zh-cn\ZedGraph.resources.dll
 F:\ChamSocXe\bin\Debug\zh-tw\ZedGraph.resources.dll
 F:\ChamSocXe\obj\Debug\ChamSocXe.GoiXe.resources
+F:\ChamSocXe\obj\Debug\ChamSocXe.NhanVien.resources
