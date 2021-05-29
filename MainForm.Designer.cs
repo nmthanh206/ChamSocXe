@@ -37,8 +37,9 @@ namespace ChamSocXe
             this.quảnLýChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gởiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnContainer = new System.Windows.Forms.Panel();
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnContainer = new System.Windows.Forms.Panel();
+            this.xeRaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,7 +97,8 @@ namespace ChamSocXe
             // 
             this.xEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gởiXeToolStripMenuItem,
-            this.danhSáchXeSửDụngDịchVụToolStripMenuItem});
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem,
+            this.xeRaToolStripMenuItem});
             this.xEToolStripMenuItem.Name = "xEToolStripMenuItem";
             this.xEToolStripMenuItem.Size = new System.Drawing.Size(32, 20);
             this.xEToolStripMenuItem.Text = "XE";
@@ -105,8 +107,15 @@ namespace ChamSocXe
             // 
             this.gởiXeToolStripMenuItem.Name = "gởiXeToolStripMenuItem";
             this.gởiXeToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.gởiXeToolStripMenuItem.Text = "Gởi Xe";
+            this.gởiXeToolStripMenuItem.Text = "Xe Vào";
             this.gởiXeToolStripMenuItem.Click += new System.EventHandler(this.gởiXeToolStripMenuItem_Click);
+            // 
+            // danhSáchXeSửDụngDịchVụToolStripMenuItem
+            // 
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Name = "danhSáchXeSửDụngDịchVụToolStripMenuItem";
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Text = "Xe Ra";
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Click += new System.EventHandler(this.danhSáchXeSửDụngDịchVụToolStripMenuItem_Click);
             // 
             // pnContainer
             // 
@@ -118,12 +127,12 @@ namespace ChamSocXe
             this.pnContainer.Size = new System.Drawing.Size(1230, 529);
             this.pnContainer.TabIndex = 1;
             // 
-            // danhSáchXeSửDụngDịchVụToolStripMenuItem
+            // xeRaToolStripMenuItem
             // 
-            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Name = "danhSáchXeSửDụngDịchVụToolStripMenuItem";
-            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Text = "Danh Sách Xe Sử Dụng Dịch Vụ";
-            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Click += new System.EventHandler(this.danhSáchXeSửDụngDịchVụToolStripMenuItem_Click);
+            this.xeRaToolStripMenuItem.Name = "xeRaToolStripMenuItem";
+            this.xeRaToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.xeRaToolStripMenuItem.Text = "Danh Sách Xe Sử Dụng Dịch Vụ";
+            this.xeRaToolStripMenuItem.Click += new System.EventHandler(this.xeRaToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -155,5 +164,6 @@ namespace ChamSocXe
         private System.Windows.Forms.ToolStripMenuItem xEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gởiXeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchXeSửDụngDịchVụToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xeRaToolStripMenuItem;
     }
 }

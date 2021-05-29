@@ -103,6 +103,12 @@
     <Compile Include="Ulti.cs" />
     <Compile Include="Woker.cs" />
     <Compile Include="Xe.cs" />
+    <Compile Include="XeRa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XeRa.Designer.cs">
+      <DependentUpon>XeRa.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChuyenMon.resx">
       <DependentUpon>ChuyenMon.cs</DependentUpon>
     </EmbeddedResource>

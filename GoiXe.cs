@@ -36,10 +36,26 @@ namespace ChamSocXe
             cbLoaiXe.DataSource = gx.getLoaiXe();
             cbLoaiXe.DisplayMember = "tenLoaiXe";
             cbLoaiXe.ValueMember = "maLoaiXe";
-            pictureBox1.Image = Image.FromFile(@"C:\Users\THANH\Desktop\Capture.PNG");
-        }
+            openCamera();
 
-        private void btnOpenCamera_Click(object sender, EventArgs e)
+
+        }
+        void openCamera()
+        {
+            if (capture == null)
+            {
+                capture = new VideoCapture();
+                capture.ImageGrabbed += Capture_ImageGrabbed;
+            }
+            else
+            {
+                MessageBox.Show("Camera dang mo roi");
+                return;
+            }
+
+            capture.Start();
+        }
+        private  void btnOpenCamera_Click(object sender, EventArgs e)
         {
             if (capture == null)
             {
@@ -126,14 +142,7 @@ namespace ChamSocXe
             txtNhanVien.Text = tenNV;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var imgTruoc = capture.QueryFrame().ToImage<Bgr, byte>();
-            Bitmap bmgTruoc = imgTruoc.Bitmap;
-            Image anhPhiaTruoc = bmgTruoc;
-            pictureBox1.Image = anhPhiaTruoc;
 
-        }
 
     }
 }

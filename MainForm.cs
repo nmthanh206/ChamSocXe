@@ -91,5 +91,12 @@ namespace ChamSocXe
             DanhSachXeSuDungDichVu dsxdv = new DanhSachXeSuDungDichVu(this);
             openForm(dsxdv);
         }
+
+        private void xeRaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForm();
+            DanhSachXeSuDungDichVu dsxdv = new DanhSachXeSuDungDichVu(this);
+            openForm(dsxdv);
+        }
     }
 }
