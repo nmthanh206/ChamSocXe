@@ -84,5 +84,12 @@ namespace ChamSocXe
             gxf = new GoiXe(this);
             openForm(gxf);
         }
+
+        private void danhSáchXeSửDụngDịchVụToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForm();
+            DanhSachXeSuDungDichVu dsxdv = new DanhSachXeSuDungDichVu(this);
+            openForm(dsxdv);
+        }
     }
 }

@@ -67,6 +67,12 @@
     <Compile Include="ChuyenMon.Designer.cs">
       <DependentUpon>ChuyenMon.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhSachXeSuDungDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhSachXeSuDungDichVu.Designer.cs">
+      <DependentUpon>DanhSachXeSuDungDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GoiXe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="Xe.cs" />
     <EmbeddedResource Include="ChuyenMon.resx">
       <DependentUpon>ChuyenMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhSachXeSuDungDichVu.resx">
+      <DependentUpon>DanhSachXeSuDungDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GoiXe.resx">
       <DependentUpon>GoiXe.cs</DependentUpon>

@@ -35,9 +35,10 @@ namespace ChamSocXe
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cHUYÊNMÔNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnContainer = new System.Windows.Forms.Panel();
             this.xEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gởiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnContainer = new System.Windows.Forms.Panel();
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +92,22 @@ namespace ChamSocXe
             this.quảnLýChuyênMônToolStripMenuItem.Text = "Quản Lý Chuyên Môn";
             this.quảnLýChuyênMônToolStripMenuItem.Click += new System.EventHandler(this.quảnLýChuyênMônToolStripMenuItem_Click);
             // 
+            // xEToolStripMenuItem
+            // 
+            this.xEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gởiXeToolStripMenuItem,
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem});
+            this.xEToolStripMenuItem.Name = "xEToolStripMenuItem";
+            this.xEToolStripMenuItem.Size = new System.Drawing.Size(32, 20);
+            this.xEToolStripMenuItem.Text = "XE";
+            // 
+            // gởiXeToolStripMenuItem
+            // 
+            this.gởiXeToolStripMenuItem.Name = "gởiXeToolStripMenuItem";
+            this.gởiXeToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.gởiXeToolStripMenuItem.Text = "Gởi Xe";
+            this.gởiXeToolStripMenuItem.Click += new System.EventHandler(this.gởiXeToolStripMenuItem_Click);
+            // 
             // pnContainer
             // 
             this.pnContainer.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -101,20 +118,12 @@ namespace ChamSocXe
             this.pnContainer.Size = new System.Drawing.Size(1230, 529);
             this.pnContainer.TabIndex = 1;
             // 
-            // xEToolStripMenuItem
+            // danhSáchXeSửDụngDịchVụToolStripMenuItem
             // 
-            this.xEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gởiXeToolStripMenuItem});
-            this.xEToolStripMenuItem.Name = "xEToolStripMenuItem";
-            this.xEToolStripMenuItem.Size = new System.Drawing.Size(32, 20);
-            this.xEToolStripMenuItem.Text = "XE";
-            // 
-            // gởiXeToolStripMenuItem
-            // 
-            this.gởiXeToolStripMenuItem.Name = "gởiXeToolStripMenuItem";
-            this.gởiXeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gởiXeToolStripMenuItem.Text = "Gởi Xe";
-            this.gởiXeToolStripMenuItem.Click += new System.EventHandler(this.gởiXeToolStripMenuItem_Click);
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Name = "danhSáchXeSửDụngDịchVụToolStripMenuItem";
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Text = "Danh Sách Xe Sử Dụng Dịch Vụ";
+            this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Click += new System.EventHandler(this.danhSáchXeSửDụngDịchVụToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -125,7 +134,6 @@ namespace ChamSocXe
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -146,5 +154,6 @@ namespace ChamSocXe
         private System.Windows.Forms.ToolStripMenuItem quảnLýChuyênMônToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gởiXeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem danhSáchXeSửDụngDịchVụToolStripMenuItem;
     }
 }

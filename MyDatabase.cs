@@ -36,6 +36,7 @@ namespace ChamSocXe
             try
             {              
                 SqlCommand cmd = new SqlCommand(query, Connection);
+        
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 openConnection();
                 adapter.Fill(datatable);
@@ -53,14 +54,17 @@ namespace ChamSocXe
 
         }
 
-        public bool ExecuteNonQuery(string query)
+        public bool ExecuteNonQuery(string query, SqlParameter[] parameters = null)
         {
 
            
             try
             {
                 SqlCommand cmd = new SqlCommand(query, Connection);
-         
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 openConnection();
                 int ret = cmd.ExecuteNonQuery();
                 if (ret > 0)

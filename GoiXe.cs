@@ -36,6 +36,7 @@ namespace ChamSocXe
             cbLoaiXe.DataSource = gx.getLoaiXe();
             cbLoaiXe.DisplayMember = "tenLoaiXe";
             cbLoaiXe.ValueMember = "maLoaiXe";
+            pictureBox1.Image = Image.FromFile(@"C:\Users\THANH\Desktop\Capture.PNG");
         }
 
         private void btnOpenCamera_Click(object sender, EventArgs e)
@@ -97,23 +98,19 @@ namespace ChamSocXe
             string soThe = txtTheXe.Text.Trim();
             string bienSoXe = txtBienSo.Text.Trim();
 
-            var imgTruoc = capture.QueryFrame().ToImage<Bgr, byte>();
-            Bitmap bmgTruoc = imgTruoc.Bitmap;
-            Image anhPhiaTruoc = bmgTruoc;
+            //var imgTruoc = capture.QueryFrame().ToImage<Bgr, byte>();
+            //Bitmap bmgTruoc = imgTruoc.Bitmap;
+            //Image anhPhiaTruoc = bmgTruoc;
 
-            var imgSau = capture.QueryFrame().ToImage<Bgr, byte>();
-            Bitmap bmgSau = imgSau.Bitmap;
-            Image anhPhiaSau = bmgSau;
-
-
-
-
+            //var imgSau = capture.QueryFrame().ToImage<Bgr, byte>();
+            //Bitmap bmgSau = imgSau.Bitmap;
+            //Image anhPhiaSau = bmgSau;
             DateTime ngayGioVao = DateTime.Now;
 
             string maLoaiXe = cbLoaiXe.SelectedValue.ToString();
 
             int maDichVu = (int)cbDichVu.SelectedValue;
-            if (gx.addXe(soThe, bienSoXe, anhPhiaTruoc, anhPhiaSau, ngayGioVao, maLoaiXe, maDichVu, MaNV))
+              if (gx.addXe(soThe, bienSoXe, picTruocXe.Image, picSauXe.Image, ngayGioVao, maLoaiXe, maDichVu, MaNV))
             {
                 MessageBox.Show("Them cong viec thanh cong", "Thong bao", MessageBoxButtons.OK);
             }
