@@ -208,5 +208,36 @@ namespace ChamSocXe
             return giaTienTheoXe;
         }
 
+        public DataTable timXeDeChoRa(string soThe)
+        {
+            string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,x.ngayGioVao,x.ngayGioRa,x.phi,bg.giaTien,dv.tenDichVu " +
+              $"FROM XeDichVu x " +
+              $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
+              $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
+              $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
+               $"JOIN TheXe tx ON tx.soThe=x.soThe " +
+               $"JOIN BangGia bg ON bg.maLoaiXe=x.maLoaiXe AND bg.maDichVu=x.maDichVu " +
+             $"WHERE tx.tinhTrang=1 AND x.tinhTrang=1 AND x.soThe=N'{soThe}'";
+            //return data.getTable(query);
+            //string query = $"SELECT * FROM XeDichVu x " +
+            //    $"JOIN TheXe tx ON tx.soThe=x.soThe " +
+            //    $"WHERE tx.tinhTrang=1 AND x.tinhTrang=1 AND x.soThe={soThe}";
+            // string query = @"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,x.ngayGioRa,x.phi 
+            //   FROM XeDichVu x 
+            //  JOIN DichVu dv ON dv.maDichVu=x.maDichVu
+            //   JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe 
+            // JOIN NhanVien nv ON nv.maNV=x.maNV 
+            //   JOIN TheXe tx ON tx.soThe=x.soThe 
+            //WHERE tx.tinhTrang=1 AND x.tinhTrang=1 AND x.soThe=N'003'";
+
+
+            return data.getTable(query);
+        }
+        public bool updateTheXe(string soThe)
+        {
+            string querySQL = $"UPDATE dbo.TheXe SET tinhTrang=0 WHERE soThe={soThe}";
+
+            return data.ExecuteNonQuery(querySQL);
+        }
     }
 }

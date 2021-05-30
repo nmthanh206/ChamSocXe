@@ -88,7 +88,7 @@ namespace ChamSocXe
         private void danhSáchXeSửDụngDịchVụToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CloseAllForm();
-            DanhSachXeSuDungDichVu dsxdv = new DanhSachXeSuDungDichVu(this);
+            XeRa dsxdv = new XeRa(this);
             openForm(dsxdv);
         }
 

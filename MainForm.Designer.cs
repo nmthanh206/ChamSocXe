@@ -38,8 +38,8 @@ namespace ChamSocXe
             this.xEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gởiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnContainer = new System.Windows.Forms.Panel();
             this.xeRaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnContainer = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,16 +117,6 @@ namespace ChamSocXe
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Text = "Xe Ra";
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem.Click += new System.EventHandler(this.danhSáchXeSửDụngDịchVụToolStripMenuItem_Click);
             // 
-            // pnContainer
-            // 
-            this.pnContainer.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pnContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContainer.Location = new System.Drawing.Point(0, 24);
-            this.pnContainer.Name = "pnContainer";
-            this.pnContainer.Size = new System.Drawing.Size(1230, 529);
-            this.pnContainer.TabIndex = 1;
-            // 
             // xeRaToolStripMenuItem
             // 
             this.xeRaToolStripMenuItem.Name = "xeRaToolStripMenuItem";
@@ -134,11 +124,21 @@ namespace ChamSocXe
             this.xeRaToolStripMenuItem.Text = "Danh Sách Xe Sử Dụng Dịch Vụ";
             this.xeRaToolStripMenuItem.Click += new System.EventHandler(this.xeRaToolStripMenuItem_Click);
             // 
+            // pnContainer
+            // 
+            this.pnContainer.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnContainer.Location = new System.Drawing.Point(0, 24);
+            this.pnContainer.Name = "pnContainer";
+            this.pnContainer.Size = new System.Drawing.Size(1230, 569);
+            this.pnContainer.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 553);
+            this.ClientSize = new System.Drawing.Size(1230, 593);
             this.Controls.Add(this.pnContainer);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
