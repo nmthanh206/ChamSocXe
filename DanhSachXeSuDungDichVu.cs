@@ -26,18 +26,8 @@ namespace ChamSocXe
             dgvDichVuXe.RowTemplate.Height = 80;
             DataTable dt = gx.getDanhSachXeDichVu();
 
-            dt.Columns.Add("Đã Xong", typeof(bool));
-
-
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                bool done = ((int)dt.Rows[i]["tinhTrang"]) == 1 ? true : false;
-                dt.Rows[i][dt.Columns.Count - 1] = done;
-            }
-            dt.Columns.Remove("tinhTrang");
             indexCheckBox = dt.Columns.Count - 1;
-            dgvDichVuXe.DataSource = dt;
+            dgvDichVuXe.DataSource = addCheckBox(dt);
 
 
             DataGridViewImageColumn anhTruocXe = new DataGridViewImageColumn();
@@ -76,15 +66,27 @@ namespace ChamSocXe
             cbDichVu.SelectedValueChanged += CbDichVu_SelectedValueChanged;
 
         }
+         private DataTable addCheckBox(DataTable dt) 
+        {
+            dt.Columns.Add("Đã Xong", typeof(bool));
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                bool done = ((int)dt.Rows[i]["tinhTrang"]) == 1 ? true : false;
+                dt.Rows[i][dt.Columns.Count - 1] = done;
+            }
+            dt.Columns.Remove("tinhTrang");
+       
+            return dt;
+        }
 
         private void CbDichVu_SelectedValueChanged(object sender, EventArgs e)
         {
-            dgvDichVuXe.DataSource = gx.getDanhSachXeDichVu($"WHERE x.maDichVu={(int)cbDichVu.SelectedValue}");
+            dgvDichVuXe.DataSource = addCheckBox( gx.getDanhSachXeDichVu($"WHERE x.maDichVu={(int)cbDichVu.SelectedValue}"));
         }
 
         private void btnShowAll_Click(object sender, EventArgs e)
         {
-            dgvDichVuXe.DataSource = gx.getDanhSachXeDichVu();
+            dgvDichVuXe.DataSource = addCheckBox(gx.getDanhSachXeDichVu());
             txtTimSoXe.Text = "";
            
         }
@@ -111,7 +113,7 @@ namespace ChamSocXe
         private void btnTimSoXe_Click(object sender, EventArgs e)
         {
             string bienSoXe = txtTimSoXe.Text.Trim();
-            dgvDichVuXe.DataSource = gx.timSoXe($"WHERE x.bienSoXe LIKE '%" + bienSoXe + "%'");
+            dgvDichVuXe.DataSource = addCheckBox( gx.timSoXe($"WHERE x.bienSoXe LIKE '%" + bienSoXe + "%'"));
         }
     }
 }

@@ -102,9 +102,21 @@ namespace ChamSocXe
             }
             return false;
         }
-        public bool addXe(string soThe, string bienSoXe, Image anhPhiaTruoc, Image anhPhiaSau, DateTime ngayGioVao, string maLoaiXe, int maDichVu, int MaNV)
+        public bool addXe(string soThe, string bienSoXe, Image anhPhiaTruoc, Image anhPhiaSau, DateTime ngayGioVao, string maLoaiXe, int maDichVu, int MaNV,string loaiGoi,int phi=0)
         {
-            string querySQL = $"INSERT INTO dbo.XeDichVu(soThe,bienSoXe,anhPhiaTruoc,anhPhiaSau,ngayGioVao,maLoaiXe,maDichVu,maNV,ngayGioRa,tinhTrang) " +
+            //string querySQL = $"INSERT INTO dbo.XeDichVu(soThe,bienSoXe,anhPhiaTruoc,anhPhiaSau,ngayGioVao,maLoaiXe,maDichVu,maNV,ngayGioRa,tinhTrang) " +
+            //            $"VALUES(N'{soThe}'," +
+            //             $"N'{bienSoXe}'," +
+            //            $"@andTruoc," +
+            //            $"@anhSau," +
+            //             $"'{ngayGioVao.ToString("yyyy - MM - dd hh: mm: ss")}'," +
+            //             $"N'{maLoaiXe}'," +
+            //             $"{maDichVu}," +
+            //              $"{MaNV}," +
+            //              $"NULL," +
+            //              $"0 )";
+
+            string querySQL = $"INSERT INTO dbo.XeDichVu(soThe,bienSoXe,anhPhiaTruoc,anhPhiaSau,ngayGioVao,maLoaiXe,maDichVu,maNV,ngayGioRa,tinhTrang,loaiGoi,phi) " +
                         $"VALUES(N'{soThe}'," +
                          $"N'{bienSoXe}'," +
                         $"@andTruoc," +
@@ -114,7 +126,9 @@ namespace ChamSocXe
                          $"{maDichVu}," +
                           $"{MaNV}," +
                           $"NULL," +
-                          $"0 )";
+                          $"0 ," +
+                          $"N'{loaiGoi}'," +
+                          $"{phi})";
             SqlCommand command = new SqlCommand(querySQL, data.Connection);
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@anhSau", Ulti.ImageToByteArray(anhPhiaSau)));
@@ -124,7 +138,7 @@ namespace ChamSocXe
 
         public DataTable getDanhSachXeDichVu(string whereCondition="")
         {
-            string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,nv.hoTen,x.ngayGioRa,x.tinhTrang,x.phi " +
+            string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,nv.hoTen,x.ngayGioRa,x.tinhTrang,x.phi " +
                 $"FROM XeDichVu x " +
                 $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
                 $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
@@ -151,13 +165,47 @@ namespace ChamSocXe
         }
         public DataTable timSoXe(string whereCondition = "")
         {
-            string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,nv.hoTen,x.ngayGioRa,x.tinhTrang,x.phi " +
+            string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,nv.hoTen,x.ngayGioRa,x.tinhTrang,x.phi " +
                 $"FROM XeDichVu x " +
                 $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
                 $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
                 $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
                 $"{whereCondition}";
             return data.getTable(query);
+        }
+
+        public List<int> getGiaTheoGioCacLoaiXe()
+        {
+            string query = $"SELECT giaTien FROM BangGia WHERE maDichVu=1";
+            DataTable dt= data.getTable(query);
+            List<int> giaTienTheoXe = new List<int>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                giaTienTheoXe.Add((int)dt.Rows[i][0]);
+            }
+            return giaTienTheoXe;
+        }
+        public List<int> getGiaSuaXe()
+        {
+            string query = $"SELECT giaTien FROM BangGia WHERE maDichVu=2";
+            DataTable dt = data.getTable(query);
+            List<int> giaTienTheoXe = new List<int>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                giaTienTheoXe.Add((int)dt.Rows[i][0]);
+            }
+            return giaTienTheoXe;
+        }
+        public List<int> getGiaRuaXe()
+        {
+            string query = $"SELECT giaTien FROM BangGia WHERE maDichVu=3";
+            DataTable dt = data.getTable(query);
+            List<int> giaTienTheoXe = new List<int>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                giaTienTheoXe.Add((int)dt.Rows[i][0]);
+            }
+            return giaTienTheoXe;
         }
 
     }

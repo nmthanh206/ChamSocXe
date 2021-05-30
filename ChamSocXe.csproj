@@ -136,6 +136,9 @@
     <EmbeddedResource Include="QuanLyTho.resx">
       <DependentUpon>QuanLyTho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XeRa.resx">
+      <DependentUpon>XeRa.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

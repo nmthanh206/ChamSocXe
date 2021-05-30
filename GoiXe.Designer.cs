@@ -45,6 +45,8 @@ namespace ChamSocXe
             this.label6 = new System.Windows.Forms.Label();
             this.txtNhanVien = new System.Windows.Forms.TextBox();
             this.btnChonNhanVien = new System.Windows.Forms.Button();
+            this.cbLoaiGoi = new System.Windows.Forms.ComboBox();
+            this.lblLoai = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picTruocXe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSauXe)).BeginInit();
             this.SuspendLayout();
@@ -131,7 +133,7 @@ namespace ChamSocXe
             // 
             // btnGiaoViec
             // 
-            this.btnGiaoViec.Location = new System.Drawing.Point(806, 396);
+            this.btnGiaoViec.Location = new System.Drawing.Point(915, 396);
             this.btnGiaoViec.Name = "btnGiaoViec";
             this.btnGiaoViec.Size = new System.Drawing.Size(75, 23);
             this.btnGiaoViec.TabIndex = 8;
@@ -175,7 +177,7 @@ namespace ChamSocXe
             // 
             // txtNhanVien
             // 
-            this.txtNhanVien.Location = new System.Drawing.Point(644, 396);
+            this.txtNhanVien.Location = new System.Drawing.Point(753, 396);
             this.txtNhanVien.Name = "txtNhanVien";
             this.txtNhanVien.ReadOnly = true;
             this.txtNhanVien.Size = new System.Drawing.Size(137, 20);
@@ -183,22 +185,41 @@ namespace ChamSocXe
             // 
             // btnChonNhanVien
             // 
-            this.btnChonNhanVien.Location = new System.Drawing.Point(644, 364);
+            this.btnChonNhanVien.Location = new System.Drawing.Point(753, 364);
             this.btnChonNhanVien.Name = "btnChonNhanVien";
-            this.btnChonNhanVien.Size = new System.Drawing.Size(75, 23);
+            this.btnChonNhanVien.Size = new System.Drawing.Size(103, 23);
             this.btnChonNhanVien.TabIndex = 14;
-            this.btnChonNhanVien.Text = "Nhân Viên";
+            this.btnChonNhanVien.Text = "Chọn Nhân Viên";
             this.btnChonNhanVien.UseVisualStyleBackColor = true;
             this.btnChonNhanVien.Click += new System.EventHandler(this.btnChonNhanVien_Click);
+            // 
+            // cbLoaiGoi
+            // 
+            this.cbLoaiGoi.FormattingEnabled = true;
+            this.cbLoaiGoi.Location = new System.Drawing.Point(628, 395);
+            this.cbLoaiGoi.Name = "cbLoaiGoi";
+            this.cbLoaiGoi.Size = new System.Drawing.Size(109, 21);
+            this.cbLoaiGoi.TabIndex = 15;
+            // 
+            // lblLoai
+            // 
+            this.lblLoai.AutoSize = true;
+            this.lblLoai.Location = new System.Drawing.Point(625, 369);
+            this.lblLoai.Name = "lblLoai";
+            this.lblLoai.Size = new System.Drawing.Size(46, 13);
+            this.lblLoai.TabIndex = 11;
+            this.lblLoai.Text = "Loại Gởi";
             // 
             // GoiXe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 602);
+            this.Controls.Add(this.cbLoaiGoi);
             this.Controls.Add(this.btnChonNhanVien);
             this.Controls.Add(this.txtNhanVien);
             this.Controls.Add(this.cbDichVu);
+            this.Controls.Add(this.lblLoai);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbLoaiXe);
             this.Controls.Add(this.label5);
@@ -240,5 +261,7 @@ namespace ChamSocXe
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNhanVien;
         private System.Windows.Forms.Button btnChonNhanVien;
+        private System.Windows.Forms.ComboBox cbLoaiGoi;
+        private System.Windows.Forms.Label lblLoai;
     }
 }

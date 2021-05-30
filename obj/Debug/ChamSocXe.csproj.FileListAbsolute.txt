@@ -49,3 +49,4 @@ F:\ChamSocXe\bin\Debug\zh-tw\ZedGraph.resources.dll
 F:\ChamSocXe\obj\Debug\ChamSocXe.GoiXe.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.NhanVien.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.DanhSachXeSuDungDichVu.resources
+F:\ChamSocXe\obj\Debug\ChamSocXe.XeRa.resources

@@ -27,19 +27,107 @@ namespace ChamSocXe
             this.Width = parent.Width;
             this.Height = parent.Height;
         }
-
+        List<int> giaTienTheoXe;
+        List<int> giaTienTheoXeSuaXe;
+        List<int> giaTienRuaXe;
         private void GoiXe_Load(object sender, EventArgs e)
         {
             cbDichVu.DataSource = gx.getDichVu();
             cbDichVu.DisplayMember = "tenDichVu";
             cbDichVu.ValueMember = "maDichVu";
+
+        
+
             cbLoaiXe.DataSource = gx.getLoaiXe();
             cbLoaiXe.DisplayMember = "tenLoaiXe";
             cbLoaiXe.ValueMember = "maLoaiXe";
-            openCamera();
+
+            cbDichVu.SelectedValueChanged += CbDichVu_SelectedValueChanged;
+            cbLoaiXe.SelectedValueChanged += CbLoaiXe_SelectedValueChanged;
+
+            cbLoaiGoi.Enabled = false;
+            giaTienTheoXe = gx.getGiaTheoGioCacLoaiXe();
+            giaTienTheoXeSuaXe = gx.getGiaSuaXe();
+            giaTienRuaXe = gx.getGiaRuaXe();
+            CbDichVu_SelectedValueChanged(sender, e);
+            CbLoaiXe_SelectedValueChanged(sender, e);
+           //    openCamera();
 
 
         }
+
+        private void CbLoaiXe_SelectedValueChanged(object sender, EventArgs e)
+        {
+            updateGiaDichVu((int)cbDichVu.SelectedValue);
+        
+        }
+        void updateGiaDichVu(int maDichVu)
+        {
+            if (maDichVu == 1)
+            {
+                lblLoai.Text = "Loại Gởi";
+                cbLoaiGoi.Items.Clear();
+                int gia;
+                if (cbLoaiXe.Text == "Xe Đạp")
+                    gia = giaTienTheoXe[0];
+                else if (cbLoaiXe.Text == "Xe Máy")
+                    gia = giaTienTheoXe[1];
+                else
+                    gia = giaTienTheoXe[2];
+                cbLoaiGoi.Items.Add($"Giờ : {gia}");
+                cbLoaiGoi.Items.Add($"Ngày : {8 * gia}");
+                cbLoaiGoi.Items.Add($"Tuần : {8 * gia * 3}");
+                cbLoaiGoi.Items.Add($"Tháng : {8 * gia * 3 * 2}");
+            }
+            else if (maDichVu == 2)
+            {
+                lblLoai.Text = "Giá";
+                cbLoaiGoi.Items.Clear();
+
+                int gia;
+                if (cbLoaiXe.Text == "Xe Đạp")
+                    gia = giaTienTheoXeSuaXe[0];
+                else if (cbLoaiXe.Text == "Xe Máy")
+                    gia = giaTienTheoXeSuaXe[1];
+                else
+                    gia = giaTienTheoXeSuaXe[2];
+                cbLoaiGoi.Items.Add($"{gia}");
+            }
+            else if (maDichVu == 3)
+            {
+                lblLoai.Text = "Giá";
+                cbLoaiGoi.Items.Clear();
+                int gia;
+                if (cbLoaiXe.Text == "Xe Đạp")
+                    gia = giaTienRuaXe[0];
+                else if (cbLoaiXe.Text == "Xe Máy")
+                    gia = giaTienRuaXe[1];
+                else
+                    gia = giaTienRuaXe[2];
+                cbLoaiGoi.Items.Add($"{gia}");
+            }
+            cbLoaiGoi.SelectedIndex = 0;
+        }
+
+        private void CbDichVu_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+            if ((int)cbDichVu.SelectedValue == 1)
+            {
+
+                cbLoaiGoi.Enabled = true;
+           //     CbLoaiXe_SelectedValueChanged(sender, e);
+            }
+            else
+            {
+           //     CbLoaiXe_SelectedValueChanged(sender, e);
+                cbLoaiGoi.Enabled = false;
+                
+            }
+            updateGiaDichVu((int)cbDichVu.SelectedValue);
+
+        }
+
         void openCamera()
         {
             if (capture == null)
@@ -55,7 +143,7 @@ namespace ChamSocXe
 
             capture.Start();
         }
-        private  void btnOpenCamera_Click(object sender, EventArgs e)
+        private void btnOpenCamera_Click(object sender, EventArgs e)
         {
             if (capture == null)
             {
@@ -114,19 +202,19 @@ namespace ChamSocXe
             string soThe = txtTheXe.Text.Trim();
             string bienSoXe = txtBienSo.Text.Trim();
 
-            //var imgTruoc = capture.QueryFrame().ToImage<Bgr, byte>();
-            //Bitmap bmgTruoc = imgTruoc.Bitmap;
-            //Image anhPhiaTruoc = bmgTruoc;
-
-            //var imgSau = capture.QueryFrame().ToImage<Bgr, byte>();
-            //Bitmap bmgSau = imgSau.Bitmap;
-            //Image anhPhiaSau = bmgSau;
             DateTime ngayGioVao = DateTime.Now;
 
             string maLoaiXe = cbLoaiXe.SelectedValue.ToString();
 
             int maDichVu = (int)cbDichVu.SelectedValue;
-              if (gx.addXe(soThe, bienSoXe, picTruocXe.Image, picSauXe.Image, ngayGioVao, maLoaiXe, maDichVu, MaNV))
+            //      string loaiGoi = cbLoaiGoi.Text.Split(':')[0].Trim();
+            string loaiGoi = "";
+            if ((int)cbDichVu.SelectedValue==1)
+                loaiGoi = cbLoaiGoi.Text.Trim();
+            int phi=0;
+            if (lblLoai.Text=="Giá")
+                phi = int.Parse(cbLoaiGoi.Text.Trim());
+            if (gx.addXe(soThe, bienSoXe, picTruocXe.Image, picSauXe.Image, ngayGioVao, maLoaiXe, maDichVu, MaNV, loaiGoi,phi))
             {
                 MessageBox.Show("Them cong viec thanh cong", "Thong bao", MessageBoxButtons.OK);
             }
