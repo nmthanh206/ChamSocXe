@@ -40,6 +40,7 @@ namespace ChamSocXe
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xeRaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContainer = new System.Windows.Forms.Panel();
+            this.quảnLýBảngGiáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +82,8 @@ namespace ChamSocXe
             // cHUYÊNMÔNToolStripMenuItem
             // 
             this.cHUYÊNMÔNToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quảnLýChuyênMônToolStripMenuItem});
+            this.quảnLýChuyênMônToolStripMenuItem,
+            this.quảnLýBảngGiáToolStripMenuItem});
             this.cHUYÊNMÔNToolStripMenuItem.Name = "cHUYÊNMÔNToolStripMenuItem";
             this.cHUYÊNMÔNToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.cHUYÊNMÔNToolStripMenuItem.Text = "CHUYÊN MÔN";
@@ -134,6 +136,13 @@ namespace ChamSocXe
             this.pnContainer.Size = new System.Drawing.Size(1230, 569);
             this.pnContainer.TabIndex = 1;
             // 
+            // quảnLýBảngGiáToolStripMenuItem
+            // 
+            this.quảnLýBảngGiáToolStripMenuItem.Name = "quảnLýBảngGiáToolStripMenuItem";
+            this.quảnLýBảngGiáToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.quảnLýBảngGiáToolStripMenuItem.Text = "Quản Lý Bảng Giá";
+            this.quảnLýBảngGiáToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBảngGiáToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,5 +174,6 @@ namespace ChamSocXe
         private System.Windows.Forms.ToolStripMenuItem gởiXeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchXeSửDụngDịchVụToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xeRaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýBảngGiáToolStripMenuItem;
     }
 }

@@ -207,6 +207,17 @@ namespace ChamSocXe
             }
             return giaTienTheoXe;
         }
+        public List<int> getTienXe(int maDichVu)
+        {
+            string query = $"SELECT giaTien FROM BangGia WHERE maDichVu={maDichVu}";
+            DataTable dt = data.getTable(query);
+            List<int> giaTienTheoXe = new List<int>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                giaTienTheoXe.Add((int)dt.Rows[i][0]);
+            }
+            return giaTienTheoXe;
+        }
 
         public DataTable timXeDeChoRa(string soThe)
         {

@@ -27,9 +27,10 @@ namespace ChamSocXe
             this.Width = parent.Width;
             this.Height = parent.Height;
         }
-        List<int> giaTienTheoXe;
-        List<int> giaTienTheoXeSuaXe;
-        List<int> giaTienRuaXe;
+        //List<int> giaTienTheoXe;
+        //List<int> giaTienTheoXeSuaXe;
+        //List<int> giaTienRuaXe;
+        List<int> giaTien;
         private void GoiXe_Load(object sender, EventArgs e)
         {
             cbDichVu.DataSource = gx.getDichVu();
@@ -46,12 +47,14 @@ namespace ChamSocXe
             cbLoaiXe.SelectedValueChanged += CbLoaiXe_SelectedValueChanged;
 
             cbLoaiGoi.Enabled = false;
-            giaTienTheoXe = gx.getGiaTheoGioCacLoaiXe();
-            giaTienTheoXeSuaXe = gx.getGiaSuaXe();
-            giaTienRuaXe = gx.getGiaRuaXe();
+            //giaTienTheoXe = gx.getGiaTheoGioCacLoaiXe();
+            //giaTienTheoXeSuaXe = gx.getGiaSuaXe();
+            //giaTienRuaXe = gx.getGiaRuaXe();
+
+
             CbDichVu_SelectedValueChanged(sender, e);
-            CbLoaiXe_SelectedValueChanged(sender, e);
-           //    openCamera();
+        //    CbLoaiXe_SelectedValueChanged(sender, e);
+            //    openCamera();
 
 
         }
@@ -63,47 +66,61 @@ namespace ChamSocXe
         }
         void updateGiaDichVu(int maDichVu)
         {
+            giaTien = gx.getTienXe(maDichVu);
             if (maDichVu == 1)
             {
                 lblLoai.Text = "Loại Gởi";
                 cbLoaiGoi.Items.Clear();
                 int gia;
                 if (cbLoaiXe.Text == "Xe Đạp")
-                    gia = giaTienTheoXe[0];
+                    gia = giaTien[0];
                 else if (cbLoaiXe.Text == "Xe Máy")
-                    gia = giaTienTheoXe[1];
+                    gia = giaTien[1];
                 else
-                    gia = giaTienTheoXe[2];
+                    gia = giaTien[2];
                 cbLoaiGoi.Items.Add($"Giờ : {gia}");
                 cbLoaiGoi.Items.Add($"Ngày : {8 * gia}");
                 cbLoaiGoi.Items.Add($"Tuần : {8 * gia * 3}");
                 cbLoaiGoi.Items.Add($"Tháng : {8 * gia * 3 * 2}");
             }
-            else if (maDichVu == 2)
-            {
-                lblLoai.Text = "Giá";
-                cbLoaiGoi.Items.Clear();
+            //else if (maDichVu == 2)
+            //{
+            //    lblLoai.Text = "Giá";
+            //    cbLoaiGoi.Items.Clear();
 
-                int gia;
-                if (cbLoaiXe.Text == "Xe Đạp")
-                    gia = giaTienTheoXeSuaXe[0];
-                else if (cbLoaiXe.Text == "Xe Máy")
-                    gia = giaTienTheoXeSuaXe[1];
-                else
-                    gia = giaTienTheoXeSuaXe[2];
-                cbLoaiGoi.Items.Add($"{gia}");
-            }
-            else if (maDichVu == 3)
+            //    int gia;
+            //    if (cbLoaiXe.Text == "Xe Đạp")
+            //        gia = giaTien[0];
+            //    else if (cbLoaiXe.Text == "Xe Máy")
+            //        gia = giaTien[1];
+            //    else
+            //        gia = giaTien[2];
+            //    cbLoaiGoi.Items.Add($"{gia}");
+            //}
+            //else if (maDichVu == 3)
+            //{
+            //    lblLoai.Text = "Giá";
+            //    cbLoaiGoi.Items.Clear();
+            //    int gia;
+            //    if (cbLoaiXe.Text == "Xe Đạp")
+            //        gia = giaTien[0];
+            //    else if (cbLoaiXe.Text == "Xe Máy")
+            //        gia = giaTien[1];
+            //    else
+            //        gia = giaTien[2];
+            //    cbLoaiGoi.Items.Add($"{gia}");
+            //}
+            else
             {
                 lblLoai.Text = "Giá";
                 cbLoaiGoi.Items.Clear();
                 int gia;
                 if (cbLoaiXe.Text == "Xe Đạp")
-                    gia = giaTienRuaXe[0];
+                    gia = giaTien[0];
                 else if (cbLoaiXe.Text == "Xe Máy")
-                    gia = giaTienRuaXe[1];
+                    gia = giaTien[1];
                 else
-                    gia = giaTienRuaXe[2];
+                    gia = giaTien[2];
                 cbLoaiGoi.Items.Add($"{gia}");
             }
             cbLoaiGoi.SelectedIndex = 0;

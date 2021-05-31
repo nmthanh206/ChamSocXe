@@ -24,7 +24,7 @@ namespace ChamSocXe
         public bool addCM( int maCM, string tenCM)
         {
             string query = $"INSERT INTO ChuyenMon (maCM,tenCM) " +
-                $"VALUES ({maCM},'{tenCM}')";
+                $"VALUES ({maCM},N'{tenCM}')";
             return data.ExecuteNonQuery(query);
         }
         public bool removeCM(int maCM)

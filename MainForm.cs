@@ -98,5 +98,10 @@ namespace ChamSocXe
             DanhSachXeSuDungDichVu dsxdv = new DanhSachXeSuDungDichVu(this);
             openForm(dsxdv);
         }
+
+        private void quảnLýBảngGiáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
