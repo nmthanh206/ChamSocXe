@@ -35,12 +35,13 @@ namespace ChamSocXe
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cHUYÊNMÔNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýChuyênMônToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýBảngGiáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gởiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xeRaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContainer = new System.Windows.Forms.Panel();
-            this.quảnLýBảngGiáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýBãiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,12 +96,20 @@ namespace ChamSocXe
             this.quảnLýChuyênMônToolStripMenuItem.Text = "Quản Lý Chuyên Môn";
             this.quảnLýChuyênMônToolStripMenuItem.Click += new System.EventHandler(this.quảnLýChuyênMônToolStripMenuItem_Click);
             // 
+            // quảnLýBảngGiáToolStripMenuItem
+            // 
+            this.quảnLýBảngGiáToolStripMenuItem.Name = "quảnLýBảngGiáToolStripMenuItem";
+            this.quảnLýBảngGiáToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.quảnLýBảngGiáToolStripMenuItem.Text = "Quản Lý Bảng Giá";
+            this.quảnLýBảngGiáToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBảngGiáToolStripMenuItem_Click);
+            // 
             // xEToolStripMenuItem
             // 
             this.xEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gởiXeToolStripMenuItem,
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem,
-            this.xeRaToolStripMenuItem});
+            this.xeRaToolStripMenuItem,
+            this.quảnLýBãiXeToolStripMenuItem});
             this.xEToolStripMenuItem.Name = "xEToolStripMenuItem";
             this.xEToolStripMenuItem.Size = new System.Drawing.Size(32, 20);
             this.xEToolStripMenuItem.Text = "XE";
@@ -136,12 +145,12 @@ namespace ChamSocXe
             this.pnContainer.Size = new System.Drawing.Size(1230, 569);
             this.pnContainer.TabIndex = 1;
             // 
-            // quảnLýBảngGiáToolStripMenuItem
+            // quảnLýBãiXeToolStripMenuItem
             // 
-            this.quảnLýBảngGiáToolStripMenuItem.Name = "quảnLýBảngGiáToolStripMenuItem";
-            this.quảnLýBảngGiáToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.quảnLýBảngGiáToolStripMenuItem.Text = "Quản Lý Bảng Giá";
-            this.quảnLýBảngGiáToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBảngGiáToolStripMenuItem_Click);
+            this.quảnLýBãiXeToolStripMenuItem.Name = "quảnLýBãiXeToolStripMenuItem";
+            this.quảnLýBãiXeToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.quảnLýBãiXeToolStripMenuItem.Text = "Quản Lý Bãi Xe";
+            this.quảnLýBãiXeToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBãiXeToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -175,5 +184,6 @@ namespace ChamSocXe
         private System.Windows.Forms.ToolStripMenuItem danhSáchXeSửDụngDịchVụToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xeRaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýBảngGiáToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýBãiXeToolStripMenuItem;
     }
 }

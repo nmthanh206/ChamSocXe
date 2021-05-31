@@ -105,5 +105,12 @@ namespace ChamSocXe
             BangGia bgf = new BangGia(this);
             openForm(bgf);
         }
+
+        private void quảnLýBãiXeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChoTrong ct = new ChoTrong();
+            ct.ShowDialog();
+
+        }
     }
 }

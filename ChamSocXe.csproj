@@ -67,6 +67,12 @@
     <Compile Include="BangGia.Designer.cs">
       <DependentUpon>BangGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChoTrong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoTrong.Designer.cs">
+      <DependentUpon>ChoTrong.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChuyenMon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="BangGia.resx">
       <DependentUpon>BangGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChoTrong.resx">
+      <DependentUpon>ChoTrong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChuyenMon.resx">
       <DependentUpon>ChuyenMon.cs</DependentUpon>
