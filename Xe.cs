@@ -18,6 +18,7 @@ namespace ChamSocXe
             string query = $"SELECT * FROM DichVu";
             return data.getTable(query);
         }
+
         public DataTable getLoaiXe()
         {
             string query = $"SELECT * FROM LoaiXe";
@@ -250,5 +251,23 @@ namespace ChamSocXe
 
             return data.ExecuteNonQuery(querySQL);
         }
+        public bool updateGia(int maDichVu,string [] gia)
+        {
+    
+            bool result = true;
+            for (int i = 0; i < 3; i++)
+            {
+                string querySQL = $"UPDATE dbo.BangGia SET giaTien={gia[i]} WHERE maDichVu={maDichVu} AND maLoaiXe=N'LX0{i+1}' ";
+                if (!data.ExecuteNonQuery(querySQL))
+                    result = false;
+
+            }
+
+
+            return result;
+
+           
+        }
+
     }
 }

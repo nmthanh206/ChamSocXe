@@ -61,6 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BangGia.Designer.cs">
+      <DependentUpon>BangGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChuyenMon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="XeRa.Designer.cs">
       <DependentUpon>XeRa.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BangGia.resx">
+      <DependentUpon>BangGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChuyenMon.resx">
       <DependentUpon>ChuyenMon.cs</DependentUpon>
     </EmbeddedResource>

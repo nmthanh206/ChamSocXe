@@ -101,7 +101,9 @@ namespace ChamSocXe
 
         private void quảnLýBảngGiáToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CloseAllForm();
+            BangGia bgf = new BangGia(this);
+            openForm(bgf);
         }
     }
 }

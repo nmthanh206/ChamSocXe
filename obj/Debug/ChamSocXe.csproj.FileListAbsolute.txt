@@ -50,3 +50,4 @@ F:\ChamSocXe\obj\Debug\ChamSocXe.GoiXe.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.NhanVien.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.DanhSachXeSuDungDichVu.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.XeRa.resources
+F:\ChamSocXe\obj\Debug\ChamSocXe.BangGia.resources
