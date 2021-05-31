@@ -24,7 +24,7 @@ namespace ChamSocXe
         private void DanhSachXeSuDungDichVu_Load(object sender, EventArgs e)
         {
             dgvDichVuXe.RowTemplate.Height = 80;
-            DataTable dt = gx.getDanhSachXeDichVu();
+            DataTable dt = gx.getDanhSachXeDichVu2();
 
             indexCheckBox = dt.Columns.Count - 1;
             dgvDichVuXe.DataSource = addCheckBox(dt);
@@ -41,12 +41,13 @@ namespace ChamSocXe
 
 
             dgvDichVuXe.AllowUserToAddRows = false;
-             dgvDichVuXe.ReadOnly = false;
-            for (int i = 0; i < dgvDichVuXe.Columns.Count-1; i++)
-            {
-                dgvDichVuXe.Columns[i].ReadOnly = true;
-            }
-           
+             dgvDichVuXe.ReadOnly = true;
+            // dgvDichVuXe.ReadOnly = false;
+            //for (int i = 0; i < dgvDichVuXe.Columns.Count-1; i++)
+            //{
+            //    dgvDichVuXe.Columns[i].ReadOnly = true;
+            //}
+
 
             //DataGridViewCheckBoxColumn dgvCmb = new DataGridViewCheckBoxColumn();
             //dgvCmb.ValueType = typeof(bool);
@@ -68,7 +69,7 @@ namespace ChamSocXe
         }
          private DataTable addCheckBox(DataTable dt) 
         {
-            dt.Columns.Add("Đã Xong", typeof(bool));
+            dt.Columns.Add("Khách đã lấy xe", typeof(bool));
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 bool done = ((int)dt.Rows[i]["tinhTrang"]) == 1 ? true : false;

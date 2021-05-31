@@ -103,7 +103,7 @@ namespace ChamSocXe
             }
             return false;
         }
-        public bool addXe(string soThe, string bienSoXe, Image anhPhiaTruoc, Image anhPhiaSau, DateTime ngayGioVao, string maLoaiXe, int maDichVu, int MaNV,string loaiGoi,int phi=0)
+        public bool addXe(string soThe, string bienSoXe, Image anhPhiaTruoc, Image anhPhiaSau, DateTime ngayGioVao, string maLoaiXe, int maDichVu, int MaNV, string loaiGoi, int phi = 0)
         {
             //string querySQL = $"INSERT INTO dbo.XeDichVu(soThe,bienSoXe,anhPhiaTruoc,anhPhiaSau,ngayGioVao,maLoaiXe,maDichVu,maNV,ngayGioRa,tinhTrang) " +
             //            $"VALUES(N'{soThe}'," +
@@ -122,7 +122,7 @@ namespace ChamSocXe
                          $"N'{bienSoXe}'," +
                         $"@andTruoc," +
                         $"@anhSau," +
-                         $"'{ngayGioVao.ToString("yyyy - MM - dd hh: mm: ss")}'," +
+                         $"'{ngayGioVao.ToString("yyyy - MM - dd hh: mm: ss tt")}'," +
                          $"N'{maLoaiXe}'," +
                          $"{maDichVu}," +
                           $"{MaNV}," +
@@ -137,7 +137,7 @@ namespace ChamSocXe
             return data.ExecuteNonQuery(querySQL, parameters.ToArray());
         }
 
-        public DataTable getDanhSachXeDichVu(string whereCondition="")
+        public DataTable getDanhSachXeDichVu(string whereCondition = "")
         {
             string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,nv.hoTen,x.ngayGioRa,x.tinhTrang,x.phi " +
                 $"FROM XeDichVu x " +
@@ -148,7 +148,18 @@ namespace ChamSocXe
 
             return data.getTable(query);
         }
-        public bool updateXedichVu(List<int> ids,List<bool> done)
+        public DataTable getDanhSachXeDichVu2(string whereCondition = "")
+        {
+            string query = $"SELECT x.id,x.soThe,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,nv.hoTen,x.ngayGioVao,x.ngayGioRa,x.tinhTrang,x.phi " +
+                $"FROM XeDichVu x " +
+                $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
+                $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
+                $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
+                $"{whereCondition}";
+
+            return data.getTable(query);
+        }
+        public bool updateXedichVu(List<int> ids, List<bool> done)
         {
             string querySQL = "";
             bool result = true;
@@ -160,7 +171,7 @@ namespace ChamSocXe
                     result = false;
 
             }
-            
+
 
             return result;
         }
@@ -178,7 +189,7 @@ namespace ChamSocXe
         public List<int> getGiaTheoGioCacLoaiXe()
         {
             string query = $"SELECT giaTien FROM BangGia WHERE maDichVu=1";
-            DataTable dt= data.getTable(query);
+            DataTable dt = data.getTable(query);
             List<int> giaTienTheoXe = new List<int>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -222,25 +233,24 @@ namespace ChamSocXe
 
         public DataTable timXeDeChoRa(string soThe)
         {
+            //string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,x.ngayGioVao,x.ngayGioRa,x.phi,bg.giaTien,dv.tenDichVu " +
+            //  $"FROM XeDichVu x " +
+            //  $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
+            //  $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
+            //  $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
+            //   $"JOIN TheXe tx ON tx.soThe=x.soThe " +
+            //   $"JOIN BangGia bg ON bg.maLoaiXe=x.maLoaiXe AND bg.maDichVu=x.maDichVu " +
+            // $"WHERE tx.tinhTrang=1 AND x.tinhTrang=1 AND x.soThe=N'{soThe}'";
+
             string query = $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,x.ngayGioVao,x.ngayGioRa,x.phi,bg.giaTien,dv.tenDichVu " +
-              $"FROM XeDichVu x " +
-              $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
-              $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
-              $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
-               $"JOIN TheXe tx ON tx.soThe=x.soThe " +
-               $"JOIN BangGia bg ON bg.maLoaiXe=x.maLoaiXe AND bg.maDichVu=x.maDichVu " +
-             $"WHERE tx.tinhTrang=1 AND x.tinhTrang=1 AND x.soThe=N'{soThe}'";
-            //return data.getTable(query);
-            //string query = $"SELECT * FROM XeDichVu x " +
-            //    $"JOIN TheXe tx ON tx.soThe=x.soThe " +
-            //    $"WHERE tx.tinhTrang=1 AND x.tinhTrang=1 AND x.soThe={soThe}";
-            // string query = @"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,x.ngayGioRa,x.phi 
-            //   FROM XeDichVu x 
-            //  JOIN DichVu dv ON dv.maDichVu=x.maDichVu
-            //   JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe 
-            // JOIN NhanVien nv ON nv.maNV=x.maNV 
-            //   JOIN TheXe tx ON tx.soThe=x.soThe 
-            //WHERE tx.tinhTrang=1 AND x.tinhTrang=1 AND x.soThe=N'003'";
+                  $"FROM XeDichVu x " +
+                  $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
+                  $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
+                  $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
+                   $"JOIN TheXe tx ON tx.soThe=x.soThe " +
+                   $"JOIN BangGia bg ON bg.maLoaiXe=x.maLoaiXe AND bg.maDichVu=x.maDichVu " +
+                 $"WHERE tx.tinhTrang=1 AND x.tinhTrang=0 AND x.soThe=N'{soThe}'";
+
 
 
             return data.getTable(query);
@@ -251,19 +261,20 @@ namespace ChamSocXe
 
             return data.ExecuteNonQuery(querySQL);
         }
-        public bool updatePhi(int id,string phi)
+        public bool updateXe(int id,string phi, DateTime ngayGioRa)
         {
-            string querySQL = $"UPDATE dbo.XeDichVu SET phi={phi} WHERE id={id}";
+            string querySQL = $"UPDATE dbo.XeDichVu SET tinhTrang=1,phi={phi},ngayGioRa='{ngayGioRa.ToString("yyyy - MM - dd hh: mm: ss")}' WHERE id={id}";
 
             return data.ExecuteNonQuery(querySQL);
         }
-        public bool updateGia(int maDichVu,string [] gia)
+
+        public bool updateGia(int maDichVu, string[] gia)
         {
-    
+
             bool result = true;
             for (int i = 0; i < 3; i++)
             {
-                string querySQL = $"UPDATE dbo.BangGia SET giaTien={gia[i]} WHERE maDichVu={maDichVu} AND maLoaiXe=N'LX0{i+1}' ";
+                string querySQL = $"UPDATE dbo.BangGia SET giaTien={gia[i]} WHERE maDichVu={maDichVu} AND maLoaiXe=N'LX0{i + 1}' ";
                 if (!data.ExecuteNonQuery(querySQL))
                     result = false;
 
@@ -272,8 +283,9 @@ namespace ChamSocXe
 
             return result;
 
-           
+
         }
+        
 
     }
 }

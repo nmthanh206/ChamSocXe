@@ -86,6 +86,8 @@ namespace ChamSocXe
         private void btnTim_Click(object sender, EventArgs e)
         {
             DataTable dt = gx.timXeDeChoRa(txtTheXe.Text.Trim());
+
+            int layCuoi = dt.Rows.Count - 1;
             if (dt.Rows.Count <= 0)
             {
                 MessageBox.Show("The xe chua duoc su dung hoac xe chua xong dich vu", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -120,33 +122,27 @@ namespace ChamSocXe
                 double gio = (ra - vo).TotalHours;
                 double ngay = (ra - vo).TotalDays;
 
-                int giaGio = gia ;
-                int giaNgay = gia *8;
-                int giaTuan = giaNgay*3 ;
-                int giaThang = giaTuan*2;
+                int giaGio = gia;
+                int giaNgay = gia * 8;
+                int giaTuan = giaNgay * 3;
+                int giaThang = giaTuan * 2;
                 if (hinhThuc == "Giờ")
                 {
-                    txtGiaDV.Text = $"{Math.Ceiling(gia * Math.Round(gio,2))}";
+                    txtGiaDV.Text = $"{Math.Ceiling(gia * Math.Round(gio, 2))}";
                     if (gio > 24)
-                        txtPhat.Text = $"{giaNgay*2}";
+                        txtPhat.Text = $"{giaNgay * 2}";
                 }
-
-
-
                 if (hinhThuc == "Ngày")
                 {
-
-                    txtGiaDV.Text = $"{gia*8}";
+                    txtGiaDV.Text = $"{gia * 8}";
                     if (ngay > 1)
-                        txtPhat.Text = $"{giaTuan*1}";
+                        txtPhat.Text = $"{giaTuan * 1}";
                 }
-
-
                 if (hinhThuc == "Tuần")
                 {
                     txtGiaDV.Text = $"{gia}";
                     if (ngay > 10 && ngay < 30)
-                        txtPhat.Text = $"{giaThang*1}";
+                        txtPhat.Text = $"{giaThang * 1}";
                 }
 
                 if (hinhThuc == "Tháng")
@@ -155,13 +151,10 @@ namespace ChamSocXe
                     if (ngay > 30)
                     {
                         int soGioQuaHan = (int)Math.Round(gio / 24 * 30);
-                        txtPhat.Text = $"{giaThang +giaTuan + (gia*soGioQuaHan)}";
+                        txtPhat.Text = $"{giaThang + giaTuan + (gia * soGioQuaHan)}";
 
                     }
                 }
-
-
-
                 //----------Tong Thoi Gian
                 // txtTongThoiGian.Text = ra.Subtract(vo).ToString();
                 string[] kq = (ra - vo).ToString().Split('.');
@@ -170,15 +163,31 @@ namespace ChamSocXe
                 string soGio = "";
                 string soPhut = "";
                 //     string soGiay = "";
-                if (kq[0].Length > 2)
+                //if (kq[0].Length > 2)
+                //{
+                //    thoiGian = kq[0];
+
+                //}
+                //else
+                //{
+                //    soNgay = $"{kq[0]} Ngày";
+                //    thoiGian = kq[1];
+                //}
+                if (ngay>1)
                 {
                     thoiGian = kq[0];
-
+                    soNgay = $"{kq[0]} Ngày";
+                    thoiGian = kq[1];
                 }
                 else
                 {
-                    soNgay = $"{kq[0]} Ngày";
-                    thoiGian = kq[1];
+                    thoiGian = kq[0];
+                    //if (gio < 1)
+                    //{
+                    //    thoiGian = kq[0];
+                    //    soNgay = $"{kq[0]} Ngày";
+                    //    thoiGian = kq[1];
+                    //}
                 }
 
 
@@ -186,7 +195,7 @@ namespace ChamSocXe
                 soPhut = $"{thoiGian.Substring(3, 2)} Phút";
                 //  soGiay = $"{thoiGian.Substring(6, 2)} Giây";
 
-                txtTongThoiGian.Text = $"{soNgay} - {soGio}{soPhut}";
+                txtTongThoiGian.Text = $"{soNgay} {soGio}{soPhut}";
 
 
             }
@@ -212,12 +221,17 @@ namespace ChamSocXe
 
         private void btnChoRa_Click(object sender, EventArgs e)
         {
+            if (txtLoaiXe.Text == "")
+            {
+                MessageBox.Show("Co xe dau ma ra", "Thong bao", MessageBoxButtons.OK);
+                return;
+            }
             if (gx.updateTheXe(txtTheXe.Text.Trim()))
             {
-                if (txtPhat.Text != "")
+                if (txtLoaiDV.Text.Contains("Trông coi xe"))
                 {
-                    gx.updatePhi(idXe, txtTongTien.Text.Trim());
-                    MessageBox.Show("Da cho xe ra", "Thong bao", MessageBoxButtons.OK);
+                    if (gx.updateXe(idXe, txtTongTien.Text.Trim(), dtpRa.Value))
+                        MessageBox.Show("Da cho xe ra", "Thong bao", MessageBoxButtons.OK);
                 }
                 else
                     MessageBox.Show("Da cho xe ra", "Thong bao", MessageBoxButtons.OK);
