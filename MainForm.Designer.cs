@@ -40,8 +40,10 @@ namespace ChamSocXe
             this.gởiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xeRaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnContainer = new System.Windows.Forms.Panel();
             this.quảnLýBãiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnContainer = new System.Windows.Forms.Panel();
+            this.dOANHTHUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +52,8 @@ namespace ChamSocXe
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tHỢToolStripMenuItem,
             this.cHUYÊNMÔNToolStripMenuItem,
-            this.xEToolStripMenuItem});
+            this.xEToolStripMenuItem,
+            this.dOANHTHUToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1230, 24);
@@ -135,6 +138,13 @@ namespace ChamSocXe
             this.xeRaToolStripMenuItem.Text = "Danh Sách Xe Sử Dụng Dịch Vụ";
             this.xeRaToolStripMenuItem.Click += new System.EventHandler(this.xeRaToolStripMenuItem_Click);
             // 
+            // quảnLýBãiXeToolStripMenuItem
+            // 
+            this.quảnLýBãiXeToolStripMenuItem.Name = "quảnLýBãiXeToolStripMenuItem";
+            this.quảnLýBãiXeToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.quảnLýBãiXeToolStripMenuItem.Text = "Quản Lý Bãi Xe";
+            this.quảnLýBãiXeToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBãiXeToolStripMenuItem_Click);
+            // 
             // pnContainer
             // 
             this.pnContainer.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -145,12 +155,20 @@ namespace ChamSocXe
             this.pnContainer.Size = new System.Drawing.Size(1230, 569);
             this.pnContainer.TabIndex = 1;
             // 
-            // quảnLýBãiXeToolStripMenuItem
+            // dOANHTHUToolStripMenuItem
             // 
-            this.quảnLýBãiXeToolStripMenuItem.Name = "quảnLýBãiXeToolStripMenuItem";
-            this.quảnLýBãiXeToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.quảnLýBãiXeToolStripMenuItem.Text = "Quản Lý Bãi Xe";
-            this.quảnLýBãiXeToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBãiXeToolStripMenuItem_Click);
+            this.dOANHTHUToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xemToolStripMenuItem});
+            this.dOANHTHUToolStripMenuItem.Name = "dOANHTHUToolStripMenuItem";
+            this.dOANHTHUToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.dOANHTHUToolStripMenuItem.Text = "DOANH THU";
+            // 
+            // xemToolStripMenuItem
+            // 
+            this.xemToolStripMenuItem.Name = "xemToolStripMenuItem";
+            this.xemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xemToolStripMenuItem.Text = "Xem";
+            this.xemToolStripMenuItem.Click += new System.EventHandler(this.xemToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -185,5 +203,7 @@ namespace ChamSocXe
         private System.Windows.Forms.ToolStripMenuItem xeRaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýBảngGiáToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýBãiXeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dOANHTHUToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xemToolStripMenuItem;
     }
 }

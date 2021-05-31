@@ -52,3 +52,6 @@ F:\ChamSocXe\obj\Debug\ChamSocXe.DanhSachXeSuDungDichVu.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.XeRa.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.BangGia.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.ChoTrong.resources
+F:\ChamSocXe\obj\Debug\ChamSocXe.DoanhThu.resources
+F:\ChamSocXe\bin\Debug\SautinSoft.Document.dll
+F:\ChamSocXe\bin\Debug\SautinSoft.Document.xml

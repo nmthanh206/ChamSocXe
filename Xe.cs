@@ -159,6 +159,19 @@ namespace ChamSocXe
 
             return data.getTable(query);
         }
+
+        public DataTable getDoanhThu()
+        {
+            string query = $"SELECT x.bienSoXe,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,x.ngayGioVao,x.ngayGioRa,x.phi " +
+                $"FROM XeDichVu x " +
+                $"JOIN DichVu dv ON dv.maDichVu=x.maDichVu " +
+                $"JOIN LoaiXe lx ON lx.maLoaiXe =x.maLoaiXe " +
+                $"JOIN NhanVien nv ON nv.maNV=x.maNV " +
+                $"WHERE x.tinhTrang=1";
+
+            return data.getTable(query);
+        }
+
         public bool updateXedichVu(List<int> ids, List<bool> done)
         {
             string querySQL = "";

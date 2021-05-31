@@ -112,5 +112,12 @@ namespace ChamSocXe
             ct.ShowDialog();
 
         }
+
+        private void xemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForm();
+            DoanhThu dtf = new DoanhThu(this);
+            openForm(dtf);
+        }
     }
 }

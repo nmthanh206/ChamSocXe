@@ -44,6 +44,9 @@
     <Reference Include="Emgu.CV.World, Version=3.4.3.3016, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
       <HintPath>packages\EMGU.CV.3.4.3.3016\lib\net35\Emgu.CV.World.dll</HintPath>
     </Reference>
+    <Reference Include="SautinSoft.Document, Version=5.2.2.16, Culture=neutral, PublicKeyToken=e759c76c7515592a, processorArchitecture=MSIL">
+      <HintPath>packages\sautinsoft.document.5.2.2.16\lib\net47\SautinSoft.Document.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -84,6 +87,12 @@
     </Compile>
     <Compile Include="DanhSachXeSuDungDichVu.Designer.cs">
       <DependentUpon>DanhSachXeSuDungDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoanhThu.Designer.cs">
+      <DependentUpon>DoanhThu.cs</DependentUpon>
     </Compile>
     <Compile Include="GoiXe.cs">
       <SubType>Form</SubType>
@@ -132,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhSachXeSuDungDichVu.resx">
       <DependentUpon>DanhSachXeSuDungDichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoanhThu.resx">
+      <DependentUpon>DoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GoiXe.resx">
       <DependentUpon>GoiXe.cs</DependentUpon>
