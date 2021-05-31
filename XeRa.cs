@@ -105,14 +105,14 @@ namespace ChamSocXe
 
             picTruocXe.Image = Ulti.byteArrayToImage((byte[])dt.Rows[0]["anhPhiaTruoc"]);
             picSauXe.Image = Ulti.byteArrayToImage((byte[])dt.Rows[0]["anhPhiaSau"]);
-            // string loaiGoi = dt.Rows[0]["loaiGoi"].ToString();
-            //   int gia = (int)dt.Rows[0]["giaTien"];
-            // string hinhThuc = dt.Rows[0]["tenDichVu"].ToString();
-            if (loaiGoi != "")
+            //-- clear tien phat moi lan tim
+            txtPhat.Text = "";
+            //-- clear tong thoi gian phat moi lan tim
+            txtTongThoiGian.Text = "";
+            if (loaiGoi.Contains(":"))
             {
-                //  string hinhThuc = loaiGoi.Split(':')[0].Trim();
                 hinhThuc = loaiGoi.Split(':')[0].Trim();
-                //  int gia = int.Parse(loaiGoi.Split(':')[1].Trim());
+
 
                 txtLoaiDV.Text = $"{tenDichVu} - {hinhThuc}";
 
@@ -128,7 +128,8 @@ namespace ChamSocXe
                 int giaThang = giaTuan * 2;
                 if (hinhThuc == "Giờ")
                 {
-                    txtGiaDV.Text = $"{Math.Ceiling(gia * Math.Round(gio, 2))}";
+                    int tien = ((int)Math.Ceiling(gia * Math.Round(gio, 2)))< gia?gia: ((int)Math.Ceiling(gia * Math.Round(gio, 2)));
+                    txtGiaDV.Text = $"{tien}";
                     if (gio > 24)
                         txtPhat.Text = $"{giaNgay * 2}";
                 }
@@ -226,16 +227,9 @@ namespace ChamSocXe
                 MessageBox.Show("Co xe dau ma ra", "Thong bao", MessageBoxButtons.OK);
                 return;
             }
-            if (gx.updateTheXe(txtTheXe.Text.Trim()))
+            if (gx.updateTheXe(txtTheXe.Text.Trim()) && gx.updateXe(idXe, txtTongTien.Text.Trim(), dtpRa.Value))
             {
-                if (txtLoaiDV.Text.Contains("Trông coi xe"))
-                {
-                    if (gx.updateXe(idXe, txtTongTien.Text.Trim(), dtpRa.Value))
-                        MessageBox.Show("Da cho xe ra", "Thong bao", MessageBoxButtons.OK);
-                }
-                else
                     MessageBox.Show("Da cho xe ra", "Thong bao", MessageBoxButtons.OK);
-
             }
             else
                 MessageBox.Show("Khong Cho Ra Duoc", "Thong bao", MessageBoxButtons.OK);

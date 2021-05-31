@@ -263,10 +263,11 @@ namespace ChamSocXe
         }
         public bool updateXe(int id,string phi, DateTime ngayGioRa)
         {
-            string querySQL = $"UPDATE dbo.XeDichVu SET tinhTrang=1,phi={phi},ngayGioRa='{ngayGioRa.ToString("yyyy - MM - dd hh: mm: ss")}' WHERE id={id}";
+            string querySQL = $"UPDATE dbo.XeDichVu SET tinhTrang=1,phi={phi},ngayGioRa='{ngayGioRa.ToString("yyyy - MM - dd hh: mm: ss tt")}' WHERE id={id}";
 
             return data.ExecuteNonQuery(querySQL);
         }
+
 
         public bool updateGia(int maDichVu, string[] gia)
         {
