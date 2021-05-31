@@ -17,10 +17,11 @@ namespace ChamSocXe
     {
         Xe gx = new Xe();
         public static VideoCapture capture;
-        string hinhThuc="";
+        string hinhThuc = "";
         int gia;
         string tenDichVu = "";
         string loaiGoi = "";
+        int idXe;
         public XeRa(Form parent)
         {
             InitializeComponent();
@@ -79,17 +80,19 @@ namespace ChamSocXe
             //DateTime dt = new DateTime(2018,2,3,6,23,55);
             //// dateTimePicker1.Value = dt;
             //dt = dateTimePicker1.Value;
-            
+
         }
 
         private void btnTim_Click(object sender, EventArgs e)
         {
             DataTable dt = gx.timXeDeChoRa(txtTheXe.Text.Trim());
-            if (dt.Rows.Count <= 0) {
+            if (dt.Rows.Count <= 0)
+            {
                 MessageBox.Show("The xe chua duoc su dung hoac xe chua xong dich vu", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
             //   $"SELECT x.id,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,x.ngayGioRa,x.phi " +
+            idXe = (int)dt.Rows[0]["id"];
             txtLoaiXe.Text = dt.Rows[0]["tenLoaiXe"].ToString();
             txtSoXe.Text = dt.Rows[0]["bienSoXe"].ToString();
             dtpGoi.Value = (DateTime)dt.Rows[0]["ngayGioVao"];
@@ -110,55 +113,115 @@ namespace ChamSocXe
                 //  int gia = int.Parse(loaiGoi.Split(':')[1].Trim());
 
                 txtLoaiDV.Text = $"{tenDichVu} - {hinhThuc}";
-       
+
                 DateTime vo = dtpGoi.Value;
                 DateTime ra = dtpRa.Value;
-               
+
                 double gio = (ra - vo).TotalHours;
                 double ngay = (ra - vo).TotalDays;
 
-                //if (hinhThuc == "Giờ" && gio < 24)
-                //    txtGiaDV.Text = $"{gia* Math.Ceiling(gio)}";
-                //else
-                //    txtGiaDV.Text = $"{gia}";
-                if (hinhThuc == "Giờ" )
-                    txtGiaDV.Text = $"{gia * Math.Ceiling(gio)}";
+                int giaGio = gia ;
+                int giaNgay = gia *8;
+                int giaTuan = giaNgay*3 ;
+                int giaThang = giaTuan*2;
+                if (hinhThuc == "Giờ")
+                {
+                    txtGiaDV.Text = $"{Math.Ceiling(gia * Math.Round(gio,2))}";
+                    if (gio > 24)
+                        txtPhat.Text = $"{giaNgay*2}";
+                }
 
-                if (hinhThuc=="Giờ" && gio>24)
+
+
+                if (hinhThuc == "Ngày")
                 {
-                    txtPhat.Text = $"{gia * 8 * 2}";
+
+                    txtGiaDV.Text = $"{gia*8}";
+                    if (ngay > 1)
+                        txtPhat.Text = $"{giaTuan*1}";
                 }
-                else if (hinhThuc == "Ngày" && ngay > 1)
+
+
+                if (hinhThuc == "Tuần")
                 {
-                    txtPhat.Text = $"{gia * 8 * 3}";
+                    txtGiaDV.Text = $"{gia}";
+                    if (ngay > 10 && ngay < 30)
+                        txtPhat.Text = $"{giaThang*1}";
                 }
-                else if (hinhThuc == "Tuần" && ngay > 10 && ngay<30)
+
+                if (hinhThuc == "Tháng")
                 {
-                    txtPhat.Text = $"{gia * 8 * 3*2}";
+                    txtGiaDV.Text = $"{gia}";
+                    if (ngay > 30)
+                    {
+                        int soGioQuaHan = (int)Math.Round(gio / 24 * 30);
+                        txtPhat.Text = $"{giaThang +giaTuan + (gia*soGioQuaHan)}";
+
+                    }
                 }
-                if(txtPhat.Text!="")
-                txtTongTien.Text = (int.Parse(txtGiaDV.Text) + int.Parse(txtPhat.Text)).ToString();
+
+
+
+                //----------Tong Thoi Gian
+                // txtTongThoiGian.Text = ra.Subtract(vo).ToString();
+                string[] kq = (ra - vo).ToString().Split('.');
+                string soNgay = "";
+                string thoiGian = "";
+                string soGio = "";
+                string soPhut = "";
+                //     string soGiay = "";
+                if (kq[0].Length > 2)
+                {
+                    thoiGian = kq[0];
+
+                }
                 else
                 {
-                    txtTongTien.Text = txtGiaDV.Text;
+                    soNgay = $"{kq[0]} Ngày";
+                    thoiGian = kq[1];
                 }
+
+
+                soGio = $"{thoiGian.Substring(0, 2)} Giờ";
+                soPhut = $"{thoiGian.Substring(3, 2)} Phút";
+                //  soGiay = $"{thoiGian.Substring(6, 2)} Giây";
+
+                txtTongThoiGian.Text = $"{soNgay} - {soGio}{soPhut}";
+
+
             }
             else
             {
-                txtGiaDV.Text = $"{gia}";
-                txtTongTien.Text= $"{gia}";
                 txtLoaiDV.Text = $"{tenDichVu}";
+                txtGiaDV.Text = txtTongTien.Text = $"{gia}";
+
             }
+
+            //---Tinh Tong Tien
+            if (txtPhat.Text != "")
+                txtTongTien.Text = (int.Parse(txtGiaDV.Text) + int.Parse(txtPhat.Text)).ToString();
+            else
+            {
+                txtTongTien.Text = txtGiaDV.Text;
+            }
+
+
 
 
         }
 
         private void btnChoRa_Click(object sender, EventArgs e)
         {
-            if(gx.updateTheXe(txtTheXe.Text.Trim()))
+            if (gx.updateTheXe(txtTheXe.Text.Trim()))
             {
-                MessageBox.Show("Da cho xe ra", "Thong bao", MessageBoxButtons.OK);
-            
+                if (txtPhat.Text != "")
+                {
+                    gx.updatePhi(idXe, txtTongTien.Text.Trim());
+                    MessageBox.Show("Da cho xe ra", "Thong bao", MessageBoxButtons.OK);
+                }
+                else
+                    MessageBox.Show("Da cho xe ra", "Thong bao", MessageBoxButtons.OK);
+
             }
             else
                 MessageBox.Show("Khong Cho Ra Duoc", "Thong bao", MessageBoxButtons.OK);
@@ -166,53 +229,33 @@ namespace ChamSocXe
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DateTime vo = dtpGoi.Value;
+            DateTime ra = dtpRa.Value;
 
-            if (loaiGoi != "")
+            // txtTongThoiGian.Text = ra.Subtract(vo).ToString();
+            string[] kq = (ra - vo).ToString().Split('.');
+            string soNgay = "";
+            string thoiGian = "";
+            string soGio = "";
+            string soPhut = "";
+            //     string soGiay = "";
+            if (kq[0].Length > 2)
             {
-                //  string hinhThuc = loaiGoi.Split(':')[0].Trim();
-                hinhThuc = loaiGoi.Split(':')[0].Trim();
-                //  int gia = int.Parse(loaiGoi.Split(':')[1].Trim());
+                thoiGian = kq[0];
 
-                txtLoaiDV.Text = $"{tenDichVu} - {hinhThuc}";
-
-                DateTime vo = dtpGoi.Value;
-                DateTime ra = dtpRa.Value;
-
-                double gio = (ra - vo).TotalHours;
-                double ngay = (ra - vo).TotalDays;
-
-                //if (hinhThuc == "Giờ" && gio < 24)
-                //    txtGiaDV.Text = $"{gia* Math.Ceiling(gio)}";
-                //else
-                //    txtGiaDV.Text = $"{gia}";
-                if (hinhThuc == "Giờ")
-                    txtGiaDV.Text = $"{gia * Math.Ceiling(gio)}";
-
-                if (hinhThuc == "Giờ" && gio > 24)
-                {
-                    txtPhat.Text = $"{gia * 8 * 2}";
-                }
-                else if (hinhThuc == "Ngày" && ngay > 1)
-                {
-                    txtPhat.Text = $"{gia * 8 * 3}";
-                }
-                else if (hinhThuc == "Tuần" && ngay > 10 && ngay < 30)
-                {
-                    txtPhat.Text = $"{gia * 8 * 3 * 2}";
-                }
-                if (txtPhat.Text != "")
-                    txtTongTien.Text = (int.Parse(txtGiaDV.Text) + int.Parse(txtPhat.Text)).ToString();
-                else
-                {
-                    txtTongTien.Text = $"{gia}";
-                }
             }
             else
             {
-                txtGiaDV.Text = $"{gia}";
-                txtTongTien.Text = $"{gia}";
-                txtLoaiDV.Text = $"{tenDichVu}";
+                soNgay = $"{kq[0]} Ngày";
+                thoiGian = kq[1];
             }
+
+
+            soGio = $"{thoiGian.Substring(0, 2)} Giờ";
+            soPhut = $"{thoiGian.Substring(3, 2)} Phút";
+            //  soGiay = $"{thoiGian.Substring(6, 2)} Giây";
+
+            txtTongThoiGian.Text = $"{soNgay}{soGio}{soPhut}";
         }
     }
 }

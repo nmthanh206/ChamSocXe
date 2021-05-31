@@ -251,6 +251,12 @@ namespace ChamSocXe
 
             return data.ExecuteNonQuery(querySQL);
         }
+        public bool updatePhi(int id,string phi)
+        {
+            string querySQL = $"UPDATE dbo.XeDichVu SET phi={phi} WHERE id={id}";
+
+            return data.ExecuteNonQuery(querySQL);
+        }
         public bool updateGia(int maDichVu,string [] gia)
         {
     

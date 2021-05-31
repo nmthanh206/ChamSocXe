@@ -59,6 +59,8 @@ namespace ChamSocXe
             this.btnChoRa = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtTongThoiGian = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picSauXeCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTruocXeCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSauXe)).BeginInit();
@@ -329,11 +331,29 @@ namespace ChamSocXe
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(14, 306);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "Tổng thời gian:";
+            // 
+            // txtTongThoiGian
+            // 
+            this.txtTongThoiGian.Location = new System.Drawing.Point(91, 303);
+            this.txtTongThoiGian.Name = "txtTongThoiGian";
+            this.txtTongThoiGian.Size = new System.Drawing.Size(168, 20);
+            this.txtTongThoiGian.TabIndex = 32;
+            // 
             // XeRa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 588);
+            this.Controls.Add(this.txtTongThoiGian);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnChoRa);
@@ -408,5 +428,7 @@ namespace ChamSocXe
         private System.Windows.Forms.Button btnChoRa;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtTongThoiGian;
     }
 }
