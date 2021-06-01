@@ -101,19 +101,47 @@ namespace ChamSocXe
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-          
-                SaveFileDialog sfd = new SaveFileDialog();
 
-                sfd.Filter = "Word Documents (*.docx)|*.docx";
+            SaveFileDialog sfd = new SaveFileDialog();
 
-                sfd.FileName = $"Doanh Thu.docx";
+            sfd.Filter = "Word Documents (*.docx)|*.docx";
 
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    //   SaveToWord2(dgvStudentInCourse, sfd.FileName);
-                    saveWordHtml(dgvDoanhThu, sfd.FileName);
-                }
-           
+            sfd.FileName = $"Doanh Thu.docx";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                //   SaveToWord2(dgvStudentInCourse, sfd.FileName);
+                saveWordHtml(dgvDoanhThu, sfd.FileName);
+            }
+            //string text = File.ReadAllText(@"C:\Users\THANH\Desktop\New folder\a.txt");
+
+            //text = text.Replace("{tenA}", "Cu lì");
+            //text = text.Replace("{namSinhA}", "2002");
+            //text = text.Replace("{diaChiA}", "26a");
+            //text = text.Replace("{tenB}", "");
+            //text = text.Replace("{namSinhB}", "cu tre");
+            //text = text.Replace("{diaChiB}", "11 vĩnh long");
+            //text = text.Replace("{bienSo}", "1233WED");
+            //text = text.Replace("{nhanHieu}", "BMW");
+            //text = text.Replace("{soLoai}", "2");
+            //text = text.Replace("{loaiXe}", "Mui trần");
+            //text = text.Replace("{mauSon}", "Đen");
+            //text = text.Replace("{thoiHanThue}", "6");
+            //File.WriteAllText(@"C:\Users\THANH\Desktop\New folder\haha.html", text);
+
+
+
+            //string input = @"C:\Users\THANH\Desktop\New folder\haha.html";
+            //string output = @"C:\Users\THANH\Desktop\New folder\test.docx";
+            //if (File.Exists(input))
+            //{
+            //    SautinSoft.Document.DocumentCore oDocumentCore = SautinSoft.Document.DocumentCore.Load(input);
+            //    oDocumentCore.Save(output);
+            //}
+
+            //// Open the result for demonstration purposes.
+            //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(output) { UseShellExecute = true });
+
         }
         void saveWordHtml(DataGridView dataGridView1, string FileName)
         {
@@ -165,8 +193,6 @@ namespace ChamSocXe
             }
             html += "</tr>";
 
-            //Adding DataRow.
-            int stt = 1;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 html += "<tr>";
