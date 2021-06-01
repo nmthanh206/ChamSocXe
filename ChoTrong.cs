@@ -23,6 +23,9 @@ namespace ChamSocXe
 
             dgvChoTrong.DataSource = data.getTable("SELECT lx.tenLoaiXe,ct.soChoToiDa,ct.soChoDaDung,ct.maLoaiXe FROM dbo.LoaiXe lx JOIN ChoTrong ct On ct.maLoaiXe=lx.maLoaiXe");
             dgvChoTrong.Columns["maLoaiXe"].Visible = false;
+
+            dgvChoTrong.AllowUserToAddRows = false;
+            dgvChoTrong.ReadOnly = true;
             txtCon.KeyPress += TxtCon_KeyPress;
             txtToiDa.KeyPress += TxtCon_KeyPress;
         }

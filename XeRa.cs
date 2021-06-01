@@ -80,6 +80,7 @@ namespace ChamSocXe
             //DateTime dt = new DateTime(2018,2,3,6,23,55);
             //// dateTimePicker1.Value = dt;
             //dt = dateTimePicker1.Value;
+            button1.Visible = false;
 
         }
 

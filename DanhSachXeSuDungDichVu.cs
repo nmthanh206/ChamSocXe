@@ -19,6 +19,7 @@ namespace ChamSocXe
             InitializeComponent();
             this.Width = parent.Width;
             this.Height = parent.Height;
+            btnLuu.Visible = false;
         }
 
         private void DanhSachXeSuDungDichVu_Load(object sender, EventArgs e)
