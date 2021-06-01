@@ -29,6 +29,9 @@ namespace ChamSocXe
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvDoanhThu = new System.Windows.Forms.DataGridView();
             this.cbDichVu = new System.Windows.Forms.ComboBox();
             this.btnShowAll = new System.Windows.Forms.Button();
@@ -39,13 +42,15 @@ namespace ChamSocXe
             this.radNgay = new System.Windows.Forms.RadioButton();
             this.radDichVu = new System.Windows.Forms.RadioButton();
             this.btnIn = new System.Windows.Forms.Button();
+            this.chartThongKe = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartThongKe)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDoanhThu
             // 
             this.dgvDoanhThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDoanhThu.Location = new System.Drawing.Point(27, 74);
+            this.dgvDoanhThu.Location = new System.Drawing.Point(12, 68);
             this.dgvDoanhThu.Name = "dgvDoanhThu";
             this.dgvDoanhThu.Size = new System.Drawing.Size(889, 374);
             this.dgvDoanhThu.TabIndex = 0;
@@ -53,14 +58,14 @@ namespace ChamSocXe
             // cbDichVu
             // 
             this.cbDichVu.FormattingEnabled = true;
-            this.cbDichVu.Location = new System.Drawing.Point(777, 23);
+            this.cbDichVu.Location = new System.Drawing.Point(762, 17);
             this.cbDichVu.Name = "cbDichVu";
             this.cbDichVu.Size = new System.Drawing.Size(139, 21);
             this.cbDichVu.TabIndex = 4;
             // 
             // btnShowAll
             // 
-            this.btnShowAll.Location = new System.Drawing.Point(27, 21);
+            this.btnShowAll.Location = new System.Drawing.Point(12, 15);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(75, 23);
             this.btnShowAll.TabIndex = 5;
@@ -71,7 +76,7 @@ namespace ChamSocXe
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(246, 24);
+            this.label1.Location = new System.Drawing.Point(231, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 7;
@@ -81,14 +86,14 @@ namespace ChamSocXe
             // 
             this.dtpLoc.CustomFormat = "MM-dd-yyyy  ";
             this.dtpLoc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLoc.Location = new System.Drawing.Point(321, 21);
+            this.dtpLoc.Location = new System.Drawing.Point(306, 15);
             this.dtpLoc.Name = "dtpLoc";
             this.dtpLoc.Size = new System.Drawing.Size(96, 20);
             this.dtpLoc.TabIndex = 21;
             // 
             // btnLoc
             // 
-            this.btnLoc.Location = new System.Drawing.Point(447, 21);
+            this.btnLoc.Location = new System.Drawing.Point(432, 15);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(75, 23);
             this.btnLoc.TabIndex = 5;
@@ -99,7 +104,7 @@ namespace ChamSocXe
             // radCaHai
             // 
             this.radCaHai.AutoSize = true;
-            this.radCaHai.Location = new System.Drawing.Point(549, 27);
+            this.radCaHai.Location = new System.Drawing.Point(534, 21);
             this.radCaHai.Name = "radCaHai";
             this.radCaHai.Size = new System.Drawing.Size(57, 17);
             this.radCaHai.TabIndex = 22;
@@ -110,7 +115,7 @@ namespace ChamSocXe
             // radNgay
             // 
             this.radNgay.AutoSize = true;
-            this.radNgay.Location = new System.Drawing.Point(621, 27);
+            this.radNgay.Location = new System.Drawing.Point(606, 21);
             this.radNgay.Name = "radNgay";
             this.radNgay.Size = new System.Drawing.Size(50, 17);
             this.radNgay.TabIndex = 22;
@@ -121,7 +126,7 @@ namespace ChamSocXe
             // radDichVu
             // 
             this.radDichVu.AutoSize = true;
-            this.radDichVu.Location = new System.Drawing.Point(677, 27);
+            this.radDichVu.Location = new System.Drawing.Point(662, 21);
             this.radDichVu.Name = "radDichVu";
             this.radDichVu.Size = new System.Drawing.Size(63, 17);
             this.radDichVu.TabIndex = 22;
@@ -139,11 +144,29 @@ namespace ChamSocXe
             this.btnIn.UseVisualStyleBackColor = true;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
+            // chartThongKe
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chartThongKe.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartThongKe.Legends.Add(legend3);
+            this.chartThongKe.Location = new System.Drawing.Point(920, 142);
+            this.chartThongKe.Name = "chartThongKe";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "s1";
+            this.chartThongKe.Series.Add(series3);
+            this.chartThongKe.Size = new System.Drawing.Size(300, 300);
+            this.chartThongKe.TabIndex = 24;
+            this.chartThongKe.Text = "chart1";
+            // 
             // DoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 537);
+            this.ClientSize = new System.Drawing.Size(1274, 547);
+            this.Controls.Add(this.chartThongKe);
             this.Controls.Add(this.btnIn);
             this.Controls.Add(this.radDichVu);
             this.Controls.Add(this.radNgay);
@@ -158,6 +181,7 @@ namespace ChamSocXe
             this.Text = "DoanhThu";
             this.Load += new System.EventHandler(this.DoanhThu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartThongKe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,5 +199,6 @@ namespace ChamSocXe
         private System.Windows.Forms.RadioButton radNgay;
         private System.Windows.Forms.RadioButton radDichVu;
         private System.Windows.Forms.Button btnIn;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartThongKe;
     }
 }

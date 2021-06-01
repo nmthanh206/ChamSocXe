@@ -14,6 +14,7 @@ namespace ChamSocXe
     public partial class DoanhThu : Form
     {
         Xe gx = new Xe();
+        MyDatabase data = new MyDatabase();
         DataTable dt;
         public DoanhThu(Form parent)
         {
@@ -23,7 +24,8 @@ namespace ChamSocXe
             radDichVu.Checked = true;
         }
         int tongDoanhThu = 0;
-
+        string [] listName ={"Trông coi xe","Sửa Xe","Rửa Xe"};
+        int indexColumns = 3;
         private void DoanhThu_Load(object sender, EventArgs e)
         {
 
@@ -36,6 +38,45 @@ namespace ChamSocXe
             cbDichVu.DataSource = gx.getDichVu();
             cbDichVu.DisplayMember = "tenDichVu";
             cbDichVu.ValueMember = "maDichVu";
+
+            // x.bienSoXe,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,x.ngayGioVao,x.ngayGioRa,x.phi
+            dgvDoanhThu.Columns["bienSoXe"].HeaderText = "Biển Số";
+            dgvDoanhThu.Columns["tenLoaiXe"].HeaderText = "Loại Xe";
+            dgvDoanhThu.Columns["tenDichVu"].HeaderText = "Dịch Vụ";
+            dgvDoanhThu.Columns["loaiGoi"].HeaderText = "Hình thức (nếu có)";
+            dgvDoanhThu.Columns["ngayGioVao"].HeaderText = "Ngày giờ vào";
+            dgvDoanhThu.Columns["ngayGioRa"].HeaderText = "Ngày giờ ra";
+            dgvDoanhThu.Columns["phi"].HeaderText = "Tiền trả";
+
+            loadChart();
+        }
+        private void loadChart()
+        {
+            //foreach (var series in chartThongKe.Series)
+            //{
+            //    series.Points.Clear();
+            //}
+            double giuXe = 0;
+            double ruaXe = 0;
+            double suaXe = 0;
+            int tong = dt.Rows.Count;
+            for (int i = 0; i < tong; i++)
+            {
+                if (dt.Rows[i][indexColumns].ToString() == listName[0])
+                    giuXe++;
+                else if (dt.Rows[i][indexColumns].ToString() == listName[1])
+                    suaXe++;
+                else if (dt.Rows[i][indexColumns].ToString() == listName[2])
+                    ruaXe++;
+            }
+            giuXe = Math.Round((giuXe*100 / tong),2);
+            ruaXe = Math.Round((ruaXe*100 / tong), 2);
+            suaXe = Math.Round(( 100-giuXe-ruaXe), 2);
+            chartThongKe.Titles.Add("Thống Kê Sửa Dụng Dịch Vụ");
+            chartThongKe.Series["s1"].IsValueShownAsLabel = true;
+            chartThongKe.Series["s1"].Points.AddXY("Trông coi xe", giuXe);
+            chartThongKe.Series["s1"].Points.AddXY("Sửa xe", suaXe);
+            chartThongKe.Series["s1"].Points.AddXY("Rửa xe", ruaXe);
         }
         private DataTable LoadData()
         {
@@ -256,5 +297,19 @@ namespace ChamSocXe
 
             File.Delete(input);
         }
+
+        //private void btnDV_Click(object sender, EventArgs e)
+        //{
+        //    indexColumns = 3;
+        //    listName = new string[3] { "Trông coi xe", "Sửa Xe", "Rửa Xe" };
+        //    loadChart();
+        //}
+
+        //private void btnXe_Click(object sender, EventArgs e)
+        //{
+        //    indexColumns = 1;
+        //    listName = new string[3] {"Xe Máy","Xe Mơi","Xe Đạp" };
+        //    loadChart();
+        //}
     }
 }
