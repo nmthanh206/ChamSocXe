@@ -113,6 +113,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyDatabase.cs" />
+    <Compile Include="NguoiThue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NguoiThue.Designer.cs">
+      <DependentUpon>NguoiThue.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NguoiThue.resx">
+      <DependentUpon>NguoiThue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>

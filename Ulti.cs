@@ -11,6 +11,9 @@ namespace ChamSocXe
 {
     class Ulti
     {
+        public static string html = @"C:\Users\THANH\Desktop\New folder\ok.html";
+        public static string filepath = @"C:\Users\THANH\Desktop\New folder\a.txt";
+        public static string fileSave = @"C:\Users\THANH\Desktop\test.docx";
         public static byte[] ImageToByteArray(Image imageIn)
         {
             using (var ms = new MemoryStream())

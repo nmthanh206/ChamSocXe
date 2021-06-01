@@ -122,7 +122,9 @@ namespace ChamSocXe
 
         private void choThuêToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CloseAllForm();
+            ChoThueXe ctx = new ChoThueXe(this);
+            openForm(ctx);
         }
 
         private void nhậnXeToolStripMenuItem_Click(object sender, EventArgs e)

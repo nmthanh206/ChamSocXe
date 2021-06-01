@@ -17,7 +17,12 @@ namespace ChamSocXe
             string query = $"SELECT * FROM LoaiXe";
             return data.getTable(query);
         }
-
+        public DataTable getXeThue()
+        {
+            string query = $"SELECT xt.maXe,lx.maLoaiXe,lx.tenLoaiXe,xt.bienSoXe,xt.mauSon,xt.nhaHieu,xt.anhXe,xt.thoiHan,xt.tinhTrang " +
+                            $"FROM dbo.XeChoThue xt JOIN dbo.LoaiXe lx ON lx.maLoaiXe = xt.maLoaiXe";
+            return data.getTable(query);
+        }
 
         public bool addXeVoThue(int maXe, string bienSoXe, Image anhXe, string mauSon, string maLoaiXe, string nhanHieu, string thoiHan)
         {
@@ -45,8 +50,6 @@ namespace ChamSocXe
         }
         public bool addNguoiChoThueHoacThue(int maNguoiDung, int maXe, string ten,  DateTime ngaySinh, string diaChi, string hopDong , int loai)
         {
-
-
             string query = @"INSERT INTO dbo.NguoiThueHoacChoThue
             (
                 maNguoiDung,
@@ -58,14 +61,22 @@ namespace ChamSocXe
                 loai
             ) " +
             $"VALUES({maNguoiDung},{maXe},N'{ten}', N'{ngaySinh}', N'{diaChi}',N'{hopDong}',{loai})";
-
-
-
             return data.ExecuteNonQuery(query);
-
-
-
-
+        }
+        public bool updateXeThueTinhTrang(int maNguoiDung, int maXe, string ten, DateTime ngaySinh, string diaChi, string hopDong, int loai)
+        {
+            string query = @"INSERT INTO dbo.NguoiThueHoacChoThue
+            (
+                maNguoiDung,
+                maXe,
+                ten,
+                ngaySinh,
+                diaChi,
+                hopDong,
+                loai
+            ) " +
+            $"VALUES({maNguoiDung},{maXe},N'{ten}', N'{ngaySinh}', N'{diaChi}',N'{hopDong}',{loai})";
+            return data.ExecuteNonQuery(query);
         }
     }
 }
