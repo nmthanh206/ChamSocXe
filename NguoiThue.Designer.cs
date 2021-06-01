@@ -53,6 +53,8 @@ namespace ChamSocXe
             this.label1 = new System.Windows.Forms.Label();
             this.numThoiHan = new System.Windows.Forms.NumericUpDown();
             this.txtTenLoaiXe = new System.Windows.Forms.TextBox();
+            this.txtTien = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picAnhXe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numThoiHan)).BeginInit();
             this.SuspendLayout();
@@ -258,11 +260,29 @@ namespace ChamSocXe
             this.txtTenLoaiXe.Size = new System.Drawing.Size(100, 20);
             this.txtTenLoaiXe.TabIndex = 54;
             // 
+            // txtTien
+            // 
+            this.txtTien.Location = new System.Drawing.Point(191, 369);
+            this.txtTien.Name = "txtTien";
+            this.txtTien.Size = new System.Drawing.Size(100, 20);
+            this.txtTien.TabIndex = 68;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(83, 377);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(28, 13);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "Tiền";
+            // 
             // NguoiThue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 444);
+            this.Controls.Add(this.txtTien);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.numThoiHan);
             this.Controls.Add(this.rtxtDiaChi);
             this.Controls.Add(this.label12);
@@ -324,5 +344,7 @@ namespace ChamSocXe
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numThoiHan;
         private System.Windows.Forms.TextBox txtTenLoaiXe;
+        private System.Windows.Forms.TextBox txtTien;
+        private System.Windows.Forms.Label label13;
     }
 }

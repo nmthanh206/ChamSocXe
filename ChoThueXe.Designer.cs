@@ -36,7 +36,7 @@ namespace ChamSocXe
             // dgvXeChoThue
             // 
             this.dgvXeChoThue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvXeChoThue.Location = new System.Drawing.Point(23, 29);
+            this.dgvXeChoThue.Location = new System.Drawing.Point(12, 36);
             this.dgvXeChoThue.Name = "dgvXeChoThue";
             this.dgvXeChoThue.Size = new System.Drawing.Size(1039, 443);
             this.dgvXeChoThue.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace ChamSocXe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 500);
+            this.ClientSize = new System.Drawing.Size(1071, 505);
             this.Controls.Add(this.dgvXeChoThue);
             this.Name = "ChoThueXe";
             this.Text = "ChoThueXe";

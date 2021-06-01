@@ -32,7 +32,7 @@ namespace ChamSocXe
             string maLoaiXe = cbLoaiXe.SelectedValue.ToString();
             string nhaHieu = txtNhanHieu.Text;
             string thoiHan = txtThoiHan.Text;
-
+            int tien = int.Parse(txtTien.Text);
             //-nguoi
             int maNguoiDung = int.Parse(txtmaNguoiChoThue.Text);
 
@@ -59,17 +59,31 @@ namespace ChamSocXe
             text = text.Replace("{loaiXe}", cbLoaiXe.Text);
             text = text.Replace("{mauSon}", mauSon);
             text = text.Replace("{thoiHanThue}", thoiHan);
-           
-            
-            string hopDong = $"{ten}|{ngaySinh.ToString("dd-MM-yyyy")}|{diaChi}|{tenCty}|{"  "}|{diaChiCty}|{bienSoXe}|{nhaHieu}|{soLoai}|{cbLoaiXe.Text}|{mauSon}|{thoiHan}";
+            text = text.Replace("{thienThue}", txtTien.Text);
+            text = text.Replace("{ngay}", DateTime.Now.Day.ToString());
+            text = text.Replace("{thang}", DateTime.Now.Month.ToString());
+            text = text.Replace("{nam}", DateTime.Now.Year.ToString());
+            text = text.Replace("ô tô", cbLoaiXe.Text.Split(' ')[1]);
+            text = text.Replace("Ô Tô", cbLoaiXe.Text.Split(' ')[1]);
+            string hopDong = $"{ten}|{ngaySinh.ToString("dd-MM-yyyy")}|{diaChi}|{tenCty}|{"  "}|{diaChiCty}|{bienSoXe}|{nhaHieu}|{soLoai}|{cbLoaiXe.Text}|{mauSon}|{thoiHan}|{tien}";
             int loai = 0;
 
-            if (xt.addXeVoThue(maXe, bienSoXe, anhxe, mauSon, maLoaiXe, nhaHieu, thoiHan) && xt.addNguoiChoThueHoacThue(maNguoiDung, maXe, ten, ngaySinh, diaChi, hopDong, loai))
+            if (xt.addXeVoThue(maXe, bienSoXe, anhxe, mauSon, maLoaiXe, nhaHieu, thoiHan) && xt.addNguoiChoThueHoacThue(maNguoiDung, maXe, ten, ngaySinh, diaChi, hopDong, loai,tien))
             {
-                MessageBox.Show("Them thanh cong", "Thong bao", MessageBoxButtons.OK);
-                File.WriteAllText(@"C:\Users\THANH\Desktop\New folder\haha.html", text);
-                string input = @"C:\Users\THANH\Desktop\New folder\haha.html";
-                string output = @"C:\Users\THANH\Desktop\test.docx";
+                //          MessageBox.Show("Them thanh cong", "Thong bao", MessageBoxButtons.OK);
+                SaveFileDialog sfd = new SaveFileDialog();
+
+                sfd.Filter = "Word Documents (*.docx)|*.docx";
+
+                sfd.FileName = "hopdongxe.docx";
+                string output = "";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    output = sfd.FileName;
+                }
+                File.WriteAllText(Ulti.html, text);
+                string input = Ulti.html;
+                //     output = Ulti.fileSave;
                 if (File.Exists(input))
                 {
                     SautinSoft.Document.DocumentCore oDocumentCore = SautinSoft.Document.DocumentCore.Load(input);

@@ -48,7 +48,7 @@ namespace ChamSocXe
 
 
         }
-        public bool addNguoiChoThueHoacThue(int maNguoiDung, int maXe, string ten,  DateTime ngaySinh, string diaChi, string hopDong , int loai)
+        public bool addNguoiChoThueHoacThue(int maNguoiDung, int maXe, string ten,  DateTime ngaySinh, string diaChi, string hopDong , int loai,int tien)
         {
             string query = @"INSERT INTO dbo.NguoiThueHoacChoThue
             (
@@ -58,24 +58,15 @@ namespace ChamSocXe
                 ngaySinh,
                 diaChi,
                 hopDong,
-                loai
+                loai,
+                tien
             ) " +
-            $"VALUES({maNguoiDung},{maXe},N'{ten}', N'{ngaySinh}', N'{diaChi}',N'{hopDong}',{loai})";
+            $"VALUES({maNguoiDung},{maXe},N'{ten}', N'{ngaySinh}', N'{diaChi}',N'{hopDong}',{loai},{tien})";
             return data.ExecuteNonQuery(query);
         }
-        public bool updateXeThueTinhTrang(int maNguoiDung, int maXe, string ten, DateTime ngaySinh, string diaChi, string hopDong, int loai)
+        public bool updateXeThueTinhTrang(int maXe)
         {
-            string query = @"INSERT INTO dbo.NguoiThueHoacChoThue
-            (
-                maNguoiDung,
-                maXe,
-                ten,
-                ngaySinh,
-                diaChi,
-                hopDong,
-                loai
-            ) " +
-            $"VALUES({maNguoiDung},{maXe},N'{ten}', N'{ngaySinh}', N'{diaChi}',N'{hopDong}',{loai})";
+            string query = $"UPDATE dbo.XeChoThue SET tinhTrang=1 WHERE maXe={maXe}";
             return data.ExecuteNonQuery(query);
         }
     }
