@@ -69,5 +69,13 @@ namespace ChamSocXe
             string query = $"UPDATE dbo.XeChoThue SET tinhTrang=1 WHERE maXe={maXe}";
             return data.ExecuteNonQuery(query);
         }
+
+        public DataTable getDanhSAchHopDong()
+        {
+            string query = @"SELECT nt.maXe,xt.bienSoXe,lx.tenLoaiXe,nt.ten,nt.ngaySinh,l.ten[ten2],xt.thoiHan,xt.mauSon,xt.nhaHieu,xt.anhXe,nt.tien,nt.hopDong
+FROM dbo.NguoiThueHoacChoThue nt JOIN dbo.XeChoThue xt ON xt.maXe=nt.maXe
+JOIN dbo.loaiNguoiDung l ON l.loai=nt.loai JOIN dbo.LoaiXe lx ON lx.maLoaiXe=xt.maLoaiXe";
+            return data.getTable(query); ;
+        }
     }
 }

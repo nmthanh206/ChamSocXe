@@ -30,22 +30,35 @@ namespace ChamSocXe
         private void InitializeComponent()
         {
             this.dgvHopDong = new System.Windows.Forms.DataGridView();
+            this.btnTai = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHopDong)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvHopDong
             // 
             this.dgvHopDong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHopDong.Location = new System.Drawing.Point(234, 49);
+            this.dgvHopDong.Location = new System.Drawing.Point(12, 33);
             this.dgvHopDong.Name = "dgvHopDong";
-            this.dgvHopDong.Size = new System.Drawing.Size(525, 352);
+            this.dgvHopDong.Size = new System.Drawing.Size(1156, 477);
             this.dgvHopDong.TabIndex = 0;
+            this.dgvHopDong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHopDong_CellClick);
+            // 
+            // btnTai
+            // 
+            this.btnTai.Location = new System.Drawing.Point(559, 516);
+            this.btnTai.Name = "btnTai";
+            this.btnTai.Size = new System.Drawing.Size(108, 23);
+            this.btnTai.TabIndex = 1;
+            this.btnTai.Text = "Tải Hợp Đồng";
+            this.btnTai.UseVisualStyleBackColor = true;
+            this.btnTai.Click += new System.EventHandler(this.btnTai_Click);
             // 
             // DanhSachHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1198, 551);
+            this.Controls.Add(this.btnTai);
             this.Controls.Add(this.dgvHopDong);
             this.Name = "DanhSachHopDong";
             this.Text = "DanhSachHopDong";
@@ -58,5 +71,6 @@ namespace ChamSocXe
         #endregion
 
         private System.Windows.Forms.DataGridView dgvHopDong;
+        private System.Windows.Forms.Button btnTai;
     }
 }

@@ -58,3 +58,4 @@ F:\ChamSocXe\bin\Debug\SautinSoft.Document.xml
 F:\ChamSocXe\obj\Debug\ChamSocXe.ChoThueXe.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.NhanXe.resources
 F:\ChamSocXe\obj\Debug\ChamSocXe.NguoiThue.resources
+F:\ChamSocXe\obj\Debug\ChamSocXe.DanhSachHopDong.resources

@@ -41,7 +41,7 @@ namespace ChamSocXe
             string diaChi = rtxtDiaChi.Text;
 
 
-            string text = File.ReadAllText(@"C:\Users\THANH\Desktop\New folder\a.txt");
+            string text = File.ReadAllText(Ulti.filepath);
 
 
             string tenCty = "CONG TY 1 THÀNH VIÊN CHOMCHOMXYZ";
@@ -60,12 +60,15 @@ namespace ChamSocXe
             text = text.Replace("{mauSon}", mauSon);
             text = text.Replace("{thoiHanThue}", thoiHan);
             text = text.Replace("{thienThue}", txtTien.Text);
-            text = text.Replace("{ngay}", DateTime.Now.Day.ToString());
-            text = text.Replace("{thang}", DateTime.Now.Month.ToString());
-            text = text.Replace("{nam}", DateTime.Now.Year.ToString());
+            string ngay = DateTime.Now.Day.ToString();
+            string thang = DateTime.Now.Month.ToString();
+            string nam = DateTime.Now.Year.ToString();
+            text = text.Replace("{ngay}", ngay);
+            text = text.Replace("{thang}", thang);
+            text = text.Replace("{nam}",nam);
             text = text.Replace("ô tô", cbLoaiXe.Text.Split(' ')[1]);
             text = text.Replace("Ô Tô", cbLoaiXe.Text.Split(' ')[1]);
-            string hopDong = $"{ten}|{ngaySinh.ToString("dd-MM-yyyy")}|{diaChi}|{tenCty}|{"  "}|{diaChiCty}|{bienSoXe}|{nhaHieu}|{soLoai}|{cbLoaiXe.Text}|{mauSon}|{thoiHan}|{tien}";
+            string hopDong = $"{ten}|{ngaySinh.ToString("dd-MM-yyyy")}|{diaChi}|{tenCty}|{"  "}|{diaChiCty}|{bienSoXe}|{nhaHieu}|{soLoai}|{cbLoaiXe.Text}|{mauSon}|{thoiHan}|{tien}|{ngay}|{thang}|{nam}";
             int loai = 0;
 
             if (xt.addXeVoThue(maXe, bienSoXe, anhxe, mauSon, maLoaiXe, nhaHieu, thoiHan) && xt.addNguoiChoThueHoacThue(maNguoiDung, maXe, ten, ngaySinh, diaChi, hopDong, loai,tien))

@@ -82,6 +82,8 @@ namespace ChamSocXe
 
         private void dgvXeChoThue_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
             //T xt.maXe,lx.maLoaiXe,lx.tenLoaiXe,xt.bienSoXe,xt.mauSon,xt.nhaHieu,xt.anhXe,xt.thoiHan,xt.tinhTrang 
             maXe = dgvXeChoThue.Rows[e.RowIndex].Cells[0].Value.ToString();
             tenLoaiXe = dgvXeChoThue.Rows[e.RowIndex].Cells[2].Value.ToString();
