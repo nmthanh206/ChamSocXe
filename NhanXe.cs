@@ -95,6 +95,7 @@ namespace ChamSocXe
 
                 // Open the result for demonstration purposes.
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(output) { UseShellExecute = true });
+                File.Delete(Ulti.html);
 
             }
             else

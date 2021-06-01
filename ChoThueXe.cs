@@ -33,14 +33,14 @@ namespace ChamSocXe
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
 
         { 
-            if(tinhTrang)
-            {
-                MessageBox.Show("Xe nay co nguoi thue roi");
-                return;
-            }
-            string[] data = { maXe, bienSoXe, mauSon, maLoaiXe, tenLoaiXe, nhaHieu, thoiHan };
-            NguoiThue ntf = new NguoiThue(data,anhxe);
-            ntf.ShowDialog();
+            //if(tinhTrang)
+            //{
+            //    MessageBox.Show("Xe nay co nguoi thue roi");
+            //    return;
+            //}
+            //string[] data = { maXe, bienSoXe, mauSon, maLoaiXe, tenLoaiXe, nhaHieu, thoiHan };
+            //NguoiThue ntf = new NguoiThue(data,anhxe);
+            //ntf.ShowDialog();
         }
 
         private void ChoThueXe_Load(object sender, EventArgs e)
@@ -95,6 +95,18 @@ namespace ChamSocXe
             thoiHan = dgvXeChoThue.Rows[e.RowIndex].Cells[7].Value.ToString(); 
             maLoaiXe= dgvXeChoThue.Rows[e.RowIndex].Cells["maLoaiXe"].Value.ToString();
             tinhTrang = (bool)dgvXeChoThue.Rows[e.RowIndex].Cells[8].Value;
+        }
+
+        private void btnThue_Click(object sender, EventArgs e)
+        {
+            if (tinhTrang)
+            {
+                MessageBox.Show("Xe nay co nguoi thue roi");
+                return;
+            }
+            string[] data = { maXe, bienSoXe, mauSon, maLoaiXe, tenLoaiXe, nhaHieu, thoiHan };
+            NguoiThue ntf = new NguoiThue(data, anhxe);
+            ntf.ShowDialog();
         }
     }
 }

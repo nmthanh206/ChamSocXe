@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,8 +52,10 @@ namespace ChamSocXe
             //        //   frm.Close();
             //    }
             //}
-      
-         //   pnContainer.Controls.Clear();
+
+            //   pnContainer.Controls.Clear();
+
+      //      MessageBox.Show($"{Directory.GetCurrentDirectory()}\\a.html");
             foreach (Control c in pnContainer.Controls)
                 c.Dispose();
         }
