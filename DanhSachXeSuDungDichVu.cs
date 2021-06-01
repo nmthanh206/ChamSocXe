@@ -58,9 +58,20 @@ namespace ChamSocXe
 
 
 
+            dgvDichVuXe.Columns["id"].Visible = false;
 
-
-
+            // x.id,x.soThe,x.bienSoXe,x.anhPhiaTruoc,x.anhPhiaSau,lx.tenLoaiXe,dv.tenDichVu,x.loaiGoi,nv.hoTen,x.ngayGioVao,x.ngayGioRa,x.tinhTrang,x.phi 
+            dgvDichVuXe.Columns["soThe"].HeaderText = "Thẻ xe số";
+            dgvDichVuXe.Columns["bienSoXe"].HeaderText = "Biển Số";
+            dgvDichVuXe.Columns["tenLoaiXe"].HeaderText = "Loại Xe";
+            dgvDichVuXe.Columns["tenDichVu"].HeaderText = "Dịch Vụ";
+            dgvDichVuXe.Columns["loaiGoi"].HeaderText = "Hình Thức(nếu có)";
+            dgvDichVuXe.Columns["ngayGioVao"].HeaderText = "Ngày giờ vào";
+            dgvDichVuXe.Columns["ngayGioRa"].HeaderText = "Ngày giờ ra";
+            dgvDichVuXe.Columns["anhPhiaTruoc"].HeaderText = "Ảnh trước";
+            dgvDichVuXe.Columns["anhPhiaSau"].HeaderText = "Ảnh sau";
+            dgvDichVuXe.Columns["hoTen"].HeaderText = "Nhân viên phụ trách";
+            dgvDichVuXe.Columns["phi"].HeaderText = "Tiền trả";
             cbDichVu.DataSource = gx.getDichVu();
             cbDichVu.DisplayMember = "tenDichVu";
             cbDichVu.ValueMember = "maDichVu";
@@ -70,6 +81,11 @@ namespace ChamSocXe
         }
          private DataTable addCheckBox(DataTable dt) 
         {
+            dt.Columns.Add("STT", typeof(int)).SetOrdinal(0);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                dt.Rows[i][0] = i+1;
+            }
             dt.Columns.Add("Khách đã lấy xe", typeof(bool));
             for (int i = 0; i < dt.Rows.Count; i++)
             {

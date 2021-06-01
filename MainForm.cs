@@ -143,5 +143,12 @@ namespace ChamSocXe
             DanhSachHopDong nxf = new DanhSachHopDong(this);
             openForm(nxf);
         }
+
+        private void quảnLýThẻXeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForm();
+            QuanLyTheXe nxf = new QuanLyTheXe(this);
+            openForm(nxf);
+        }
     }
 }

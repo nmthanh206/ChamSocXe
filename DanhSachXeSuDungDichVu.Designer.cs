@@ -41,7 +41,7 @@ namespace ChamSocXe
             // 
             // btnShowAll
             // 
-            this.btnShowAll.Location = new System.Drawing.Point(24, 30);
+            this.btnShowAll.Location = new System.Drawing.Point(23, 14);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(75, 23);
             this.btnShowAll.TabIndex = 0;
@@ -52,7 +52,7 @@ namespace ChamSocXe
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(310, 36);
+            this.label1.Location = new System.Drawing.Point(309, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 13);
             this.label1.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace ChamSocXe
             // 
             // txtTimSoXe
             // 
-            this.txtTimSoXe.Location = new System.Drawing.Point(439, 33);
+            this.txtTimSoXe.Location = new System.Drawing.Point(438, 17);
             this.txtTimSoXe.Name = "txtTimSoXe";
             this.txtTimSoXe.Size = new System.Drawing.Size(100, 20);
             this.txtTimSoXe.TabIndex = 2;
@@ -68,7 +68,7 @@ namespace ChamSocXe
             // cbDichVu
             // 
             this.cbDichVu.FormattingEnabled = true;
-            this.cbDichVu.Location = new System.Drawing.Point(820, 35);
+            this.cbDichVu.Location = new System.Drawing.Point(985, 12);
             this.cbDichVu.Name = "cbDichVu";
             this.cbDichVu.Size = new System.Drawing.Size(139, 21);
             this.cbDichVu.TabIndex = 3;
@@ -76,14 +76,14 @@ namespace ChamSocXe
             // dgvDichVuXe
             // 
             this.dgvDichVuXe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDichVuXe.Location = new System.Drawing.Point(24, 77);
+            this.dgvDichVuXe.Location = new System.Drawing.Point(23, 53);
             this.dgvDichVuXe.Name = "dgvDichVuXe";
-            this.dgvDichVuXe.Size = new System.Drawing.Size(1049, 406);
+            this.dgvDichVuXe.Size = new System.Drawing.Size(1186, 494);
             this.dgvDichVuXe.TabIndex = 4;
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(464, 489);
+            this.btnLuu.Location = new System.Drawing.Point(540, 553);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.TabIndex = 0;
@@ -93,7 +93,7 @@ namespace ChamSocXe
             // 
             // btnTimSoXe
             // 
-            this.btnTimSoXe.Location = new System.Drawing.Point(573, 29);
+            this.btnTimSoXe.Location = new System.Drawing.Point(572, 13);
             this.btnTimSoXe.Name = "btnTimSoXe";
             this.btnTimSoXe.Size = new System.Drawing.Size(75, 23);
             this.btnTimSoXe.TabIndex = 5;
@@ -106,7 +106,7 @@ namespace ChamSocXe
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1085, 557);
+            this.ClientSize = new System.Drawing.Size(1245, 588);
             this.Controls.Add(this.btnTimSoXe);
             this.Controls.Add(this.dgvDichVuXe);
             this.Controls.Add(this.cbDichVu);

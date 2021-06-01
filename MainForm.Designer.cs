@@ -48,6 +48,7 @@ namespace ChamSocXe
             this.nhậnXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchHợpĐồngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContainer = new System.Windows.Forms.Panel();
+            this.quảnLýThẻXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@ namespace ChamSocXe
             this.hỢPĐỒNGToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1230, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1343, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -77,14 +78,14 @@ namespace ChamSocXe
             // quảnLýThợToolStripMenuItem
             // 
             this.quảnLýThợToolStripMenuItem.Name = "quảnLýThợToolStripMenuItem";
-            this.quảnLýThợToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quảnLýThợToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.quảnLýThợToolStripMenuItem.Text = "Quản Lý Thợ";
             this.quảnLýThợToolStripMenuItem.Click += new System.EventHandler(this.quảnLýThợToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.closeToolStripMenuItem.Text = "Đóng Tất Cả";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -117,7 +118,8 @@ namespace ChamSocXe
             this.gởiXeToolStripMenuItem,
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem,
             this.xeRaToolStripMenuItem,
-            this.quảnLýBãiXeToolStripMenuItem});
+            this.quảnLýBãiXeToolStripMenuItem,
+            this.quảnLýThẻXeToolStripMenuItem});
             this.xEToolStripMenuItem.Name = "xEToolStripMenuItem";
             this.xEToolStripMenuItem.Size = new System.Drawing.Size(32, 20);
             this.xEToolStripMenuItem.Text = "XE";
@@ -203,14 +205,21 @@ namespace ChamSocXe
             this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnContainer.Location = new System.Drawing.Point(0, 24);
             this.pnContainer.Name = "pnContainer";
-            this.pnContainer.Size = new System.Drawing.Size(1230, 569);
+            this.pnContainer.Size = new System.Drawing.Size(1343, 593);
             this.pnContainer.TabIndex = 1;
+            // 
+            // quảnLýThẻXeToolStripMenuItem
+            // 
+            this.quảnLýThẻXeToolStripMenuItem.Name = "quảnLýThẻXeToolStripMenuItem";
+            this.quảnLýThẻXeToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.quảnLýThẻXeToolStripMenuItem.Text = "Quản Lý Thẻ Xe";
+            this.quảnLýThẻXeToolStripMenuItem.Click += new System.EventHandler(this.quảnLýThẻXeToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 593);
+            this.ClientSize = new System.Drawing.Size(1343, 617);
             this.Controls.Add(this.pnContainer);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -245,5 +254,6 @@ namespace ChamSocXe
         private System.Windows.Forms.ToolStripMenuItem choThuêToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nhậnXeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchHợpĐồngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýThẻXeToolStripMenuItem;
     }
 }

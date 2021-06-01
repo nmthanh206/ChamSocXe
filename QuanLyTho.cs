@@ -38,6 +38,15 @@ namespace ChamSocXe
             dgvWorkers.AllowUserToAddRows = false;
             dgvWorkers.ReadOnly = true;
             dgvWorkers.Columns[0].Width = 50;
+            // nv.maNV,nv.hoTen,nv.ngaySinh,nv.gioiTinh,nv.diaChi,nv.sdt,nv.email,cm.tenCM
+            dgvWorkers.Columns["maNV"].HeaderText = "Mã NV";
+            dgvWorkers.Columns["hoTen"].HeaderText = "Họ tên";
+            dgvWorkers.Columns["ngaySinh"].HeaderText = "Ngày sinh";
+            dgvWorkers.Columns["diaChi"].HeaderText = "Địa chỉ";
+            dgvWorkers.Columns["sdt"].HeaderText = "Số điện thoại";
+            dgvWorkers.Columns["email"].HeaderText = "Email";
+            dgvWorkers.Columns["tenCM"].HeaderText = "Chuyên môn";
+
             loadDataComboBox(cbChuyenMon);
             loadDataComboBox(cbShowRole);
             cbShowRole.SelectedValueChanged += CbChuyenMon_SelectedValueChanged;
