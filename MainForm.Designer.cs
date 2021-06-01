@@ -41,9 +41,12 @@ namespace ChamSocXe
             this.danhSáchXeSửDụngDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xeRaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýBãiXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnContainer = new System.Windows.Forms.Panel();
             this.dOANHTHUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnContainer = new System.Windows.Forms.Panel();
+            this.hỢPĐỒNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.choThuêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nhậnXeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +56,8 @@ namespace ChamSocXe
             this.tHỢToolStripMenuItem,
             this.cHUYÊNMÔNToolStripMenuItem,
             this.xEToolStripMenuItem,
-            this.dOANHTHUToolStripMenuItem});
+            this.dOANHTHUToolStripMenuItem,
+            this.hỢPĐỒNGToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1230, 24);
@@ -145,16 +149,6 @@ namespace ChamSocXe
             this.quảnLýBãiXeToolStripMenuItem.Text = "Quản Lý Bãi Xe";
             this.quảnLýBãiXeToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBãiXeToolStripMenuItem_Click);
             // 
-            // pnContainer
-            // 
-            this.pnContainer.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pnContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContainer.Location = new System.Drawing.Point(0, 24);
-            this.pnContainer.Name = "pnContainer";
-            this.pnContainer.Size = new System.Drawing.Size(1230, 569);
-            this.pnContainer.TabIndex = 1;
-            // 
             // dOANHTHUToolStripMenuItem
             // 
             this.dOANHTHUToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -166,9 +160,42 @@ namespace ChamSocXe
             // xemToolStripMenuItem
             // 
             this.xemToolStripMenuItem.Name = "xemToolStripMenuItem";
-            this.xemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xemToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.xemToolStripMenuItem.Text = "Xem";
             this.xemToolStripMenuItem.Click += new System.EventHandler(this.xemToolStripMenuItem_Click);
+            // 
+            // pnContainer
+            // 
+            this.pnContainer.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnContainer.Location = new System.Drawing.Point(0, 24);
+            this.pnContainer.Name = "pnContainer";
+            this.pnContainer.Size = new System.Drawing.Size(1230, 569);
+            this.pnContainer.TabIndex = 1;
+            // 
+            // hỢPĐỒNGToolStripMenuItem
+            // 
+            this.hỢPĐỒNGToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.choThuêToolStripMenuItem,
+            this.nhậnXeToolStripMenuItem});
+            this.hỢPĐỒNGToolStripMenuItem.Name = "hỢPĐỒNGToolStripMenuItem";
+            this.hỢPĐỒNGToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.hỢPĐỒNGToolStripMenuItem.Text = "HỢP ĐỒNG";
+            // 
+            // choThuêToolStripMenuItem
+            // 
+            this.choThuêToolStripMenuItem.Name = "choThuêToolStripMenuItem";
+            this.choThuêToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.choThuêToolStripMenuItem.Text = "Cho Thuê";
+            this.choThuêToolStripMenuItem.Click += new System.EventHandler(this.choThuêToolStripMenuItem_Click);
+            // 
+            // nhậnXeToolStripMenuItem
+            // 
+            this.nhậnXeToolStripMenuItem.Name = "nhậnXeToolStripMenuItem";
+            this.nhậnXeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nhậnXeToolStripMenuItem.Text = "Nhận Xe";
+            this.nhậnXeToolStripMenuItem.Click += new System.EventHandler(this.nhậnXeToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -205,5 +232,8 @@ namespace ChamSocXe
         private System.Windows.Forms.ToolStripMenuItem quảnLýBãiXeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dOANHTHUToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hỢPĐỒNGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem choThuêToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nhậnXeToolStripMenuItem;
     }
 }

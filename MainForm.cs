@@ -119,5 +119,17 @@ namespace ChamSocXe
             DoanhThu dtf = new DoanhThu(this);
             openForm(dtf);
         }
+
+        private void choThuêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nhậnXeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloseAllForm();
+            NhanXe nxf = new NhanXe(this);
+            openForm(nxf);
+        }
     }
 }

@@ -130,7 +130,7 @@ namespace ChamSocXe
                           $"0 ," +
                           $"N'{loaiGoi}'," +
                           $"{phi})";
-            SqlCommand command = new SqlCommand(querySQL, data.Connection);
+        //    SqlCommand command = new SqlCommand(querySQL, data.Connection);
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@anhSau", Ulti.ImageToByteArray(anhPhiaSau)));
             parameters.Add(new SqlParameter("@andTruoc", Ulti.ImageToByteArray(anhPhiaTruoc)));

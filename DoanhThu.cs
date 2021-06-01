@@ -22,7 +22,7 @@ namespace ChamSocXe
             this.Height = parent.Height;
             radDichVu.Checked = true;
         }
-        int tongDoanhThu=0;
+        int tongDoanhThu = 0;
 
         private void DoanhThu_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace ChamSocXe
         }
         private DataTable LoadData()
         {
-             dt = gx.getDoanhThu();
+            dt = gx.getDoanhThu();
             dt.Columns.Add("STT", typeof(int)).SetOrdinal(0);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -59,7 +59,7 @@ namespace ChamSocXe
         private void btnLoc_Click(object sender, EventArgs e)
         {
             string tenDichVu = "";
-            DateTime ra = new DateTime() ;
+            DateTime ra = new DateTime();
             DataTable newtb = dt.Copy();
             for (int i = 0; i < newtb.Rows.Count; i++)
             {
@@ -76,7 +76,7 @@ namespace ChamSocXe
                 else if (radDichVu.Checked)
                 {
                     tenDichVu = $"{newtb.Rows[i]["tenDichVu"]}";
-                    if (!( tenDichVu == cbDichVu.Text))
+                    if (!(tenDichVu == cbDichVu.Text))
                     {
                         newtb.Rows.RemoveAt(i);
                         i--;
@@ -99,6 +99,8 @@ namespace ChamSocXe
             dgvDoanhThu.DataSource = newtb;
         }
 
+
+      
         private void btnIn_Click(object sender, EventArgs e)
         {
 
@@ -110,7 +112,6 @@ namespace ChamSocXe
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                //   SaveToWord2(dgvStudentInCourse, sfd.FileName);
                 saveWordHtml(dgvDoanhThu, sfd.FileName);
             }
             //string text = File.ReadAllText(@"C:\Users\THANH\Desktop\New folder\a.txt");
@@ -127,6 +128,8 @@ namespace ChamSocXe
             //text = text.Replace("{loaiXe}", "Mui trần");
             //text = text.Replace("{mauSon}", "Đen");
             //text = text.Replace("{thoiHanThue}", "6");
+
+
             //File.WriteAllText(@"C:\Users\THANH\Desktop\New folder\haha.html", text);
 
 
@@ -148,7 +151,7 @@ namespace ChamSocXe
 
             for (int i = 0; i < dgvDoanhThu.Rows.Count; i++)
             {
-                tongDoanhThu+= (int)dgvDoanhThu.Rows[i].Cells["phi"].Value;
+                tongDoanhThu += (int)dgvDoanhThu.Rows[i].Cells["phi"].Value;
             }
             //Table start.
             DateTime now = DateTime.Now;
@@ -219,8 +222,8 @@ namespace ChamSocXe
         justify-content: space-between;
         margin-top: -20px;
       '
-    >"+
-      $"<p>Tổng Doanh thu : {tongDoanhThu} </p>"+
+    >" +
+      $"<p>Tổng Doanh thu : {tongDoanhThu} </p>" +
      @" <div
         style='
           display: flex;
